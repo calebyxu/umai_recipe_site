@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { neon } from "@neondatabase/serverless";
+import { NextResponse } from "next/server";
 
 // type ResponseData = {
 //     message: string
@@ -21,6 +22,6 @@ import { neon } from "@neondatabase/serverless";
 // const data = await sql`SELECT * FROM playing_with_neon;`;
 // return data;
 
-export function GET(request: Request) {
-    return new Response('hello', { status: 200 });
+export async function GET() {
+    return NextResponse.json({ message: "hello" });
 }
