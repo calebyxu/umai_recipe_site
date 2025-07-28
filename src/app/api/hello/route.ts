@@ -25,5 +25,5 @@ import { NextResponse } from "next/server";
 // return data;
 
 export async function GET() {
-    return NextResponse.json({ message: "hello" });
+    return NextResponse.json({ message: "poggo" });
 }
