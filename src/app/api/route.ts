@@ -22,5 +22,5 @@ import { neon } from "@neondatabase/serverless";
 // return data;
 
 export function GET(request: Request) {
-    return "hello";
+    return new Response('hello', { status: 200 });
 }
