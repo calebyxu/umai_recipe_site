@@ -21,6 +21,6 @@ import { neon } from "@neondatabase/serverless";
 // const data = await sql`SELECT * FROM playing_with_neon;`;
 // return data;
 
-export async function GET(request: Request) {
+export async function GET() {
     return "hello";
 }
