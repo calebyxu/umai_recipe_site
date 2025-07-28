@@ -13,7 +13,7 @@ type ResponseData = {
 //     return posts;
 // }
 
-export async function handler (
+export default function handler (
     req: NextApiRequest,
     res: NextApiResponse<ResponseData>
 ) {
