@@ -1,5 +1,3 @@
-'use server'
-
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { neon } from "@neondatabase/serverless";
 
