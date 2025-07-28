@@ -8,7 +8,7 @@ export default function Home() {
 
     useEffect(() => {
         async function fetchHello() {
-            const res = await fetch('/api/hello');
+            const res = await fetch('/api/db');
             const data = await res.json();
             setData(data.message);
         }

@@ -30,7 +30,7 @@ export async function GET() {
 
     const data = 'hello';
 
-    // console.log(process.env.DATABASE_URL);
+    console.log(process.env.DATABASE_URL);
     // console.log(process.env.POSTGRES_URL);
 
     return NextResponse.json({ message: 'hello' });
