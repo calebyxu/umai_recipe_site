@@ -1,19 +1,19 @@
 import Image from "next/image";
-import { neon } from "@neondatabase/serverless";
+import { useState, useEffect } from 'react';
 
 export default function Home() {
-    async function getData() {
-        const sql = neon(process.env.DATABASE_URL!);
-        const data = await sql`SELECT * FROM playing_with_neon;`;
-        return "hello";
-    }
+    //useState retains data 
+    const [data, setData] = useState();
 
-    const tableData = getData();
+    //executes getData func and sets it to useState
+    // const stuff = getData();
 
     return (
         <>
             <h1>hello this is the home page</h1>
-            <h2>{tableData}</h2>
+            <div>
+                
+            </div>
         </>
     );
 }
