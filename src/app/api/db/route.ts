@@ -25,8 +25,8 @@ import { NextResponse } from "next/server";
 // return data;
 
 export async function GET() {
-    const data = await fetch('https://umai-recipe-site-bg0hkwyq9-calebyxus-projects.vercel.app/dbconn');
-    const table = await data.json();
+    const sql = neon(process.env.DATABASE_URL!);
+    const data = await sql`SELECT * FROM playing_with_neon;`;
 
-    return NextResponse.json({ table });
+    return NextResponse.json({ data });
 }
