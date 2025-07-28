@@ -25,5 +25,8 @@ import { NextResponse } from "next/server";
 // return data;
 
 export async function GET() {
-    return NextResponse.json({ message: "poggo" });
+    const data = await fetch('https://umai-recipe-site-bg0hkwyq9-calebyxus-projects.vercel.app/dbconn');
+    const table = await data.json();
+
+    return NextResponse.json({ table });
 }
