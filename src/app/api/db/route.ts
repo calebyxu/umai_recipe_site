@@ -25,10 +25,12 @@ import { NextResponse } from "next/server";
 // return data;
 
 export async function GET() {
-    const sql = neon(process.env.DATABASE_URL!);
-    const data = await sql`SELECT * FROM playing_with_neon;`;
+    // const sql = neon(process.env.DATABASE_URL!);
+    // const data = await sql`SELECT * FROM playing_with_neon;`;
+
+    const data = 'hello';
 
     console.log(process.env.DATABASE_URL);
 
-    return NextResponse.json({ data });
+    return NextResponse.json({ message: 'hello' });
 }
