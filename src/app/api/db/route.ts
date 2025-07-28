@@ -31,5 +31,7 @@ export async function GET() {
     console.log(process.env.DATABASE_URL);
     // console.log(process.env.POSTGRES_URL);
 
+    console.log(data);
+
     return NextResponse.json({ data });
 }
