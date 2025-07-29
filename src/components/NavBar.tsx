@@ -3,7 +3,7 @@
 export default function NavBar() {
     return (
         <>
-            <h1>This is the navbar</h1>
+            <h1 style={{ color: 'white'}}>This is the navbar</h1>
         </>
     );
 }
