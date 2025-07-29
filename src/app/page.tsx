@@ -19,9 +19,11 @@ export default function Home() {
         <>
             <h1>hello this is the home page</h1>
             <div>
-                {json.data.map((item, i) =>
-                    <h1 key={i}>{item}</h1>
-                )}
+                {Array.isArray(json.data) ? (
+                    json.data.map((item, i) => 
+                        (<h1 key={i}>{item}</h1>))
+                    ) : 
+                    <h1>no data</h1>}
             </div>
         </>
     );
