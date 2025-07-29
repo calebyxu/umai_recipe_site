@@ -19,8 +19,8 @@ export default function Home() {
         <>
             <h1>hello this is the home page</h1>
             <div>
-                {json.data && json.data.map((item, index) =>
-                    <h1 key={index}>{item}</h1>
+                {json.data && json.data.map((item, i) =>
+                    <h1 key={i}>{item}</h1>
                 )}
             </div>
         </>
