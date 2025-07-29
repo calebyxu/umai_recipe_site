@@ -1,0 +1,79 @@
+/* General */
+:root {
+
+}
+
+/* Navbar */
+.topnav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    font-family: 'Kameron','serif';
+    font-size: 22px;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    margin: 0px 120px;
+    height: 100%;
+}
+
+.topnav button {
+    border-width: 0px;
+    border-radius: 10px;
+    width: 120px;
+    height: 45px;
+    color: #FF7D29;
+    margin-left: 16px;
+}
+  
+.topnav a{
+    float: left;
+    text-align: center;
+    padding: 5px 25px;
+    text-decoration: none;
+    color: white;
+    border-right: 2px solid white;
+    height: 100%;
+}
+  
+.topnav a:hover {
+    background-color: #FFDBBA;
+    color: black;
+    padding: 35px 25px;
+    transition: 0.5s;
+}
+
+.topnavLinks{
+    display: flex;
+    align-items: center;
+}
+
+.topnavImg{
+    width: 70px;
+    height: auto;
+    padding: 10px 5px 0px 5px;
+    margin: 0px;
+    border-width: 0px;
+}
+
+.topnavBackground{
+    background-color: #FF7D29;
+    width: 100%;
+    height: 95px;
+    position: fixed;
+    top: 0;
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+#googleLogin {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.g_id_signin {
+    align-self: center;
+}
