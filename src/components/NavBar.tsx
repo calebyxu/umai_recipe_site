@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import '../components/component.css';
-import umaiBlack from '../../public/img/UMAI-ICON-FINAL-02.svg';
+import umaiBlack from '/img/UMAI-ICON-FINAL-02.svg';
 
 export default function NavBar() {
     return (
