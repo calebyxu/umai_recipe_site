@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import '../components/component.css';
-import umaiBlack from './img/UMAI-ICON-FINAL-02.svg';
+import umaiBlack from './img/umaiBlackLogo.svg';
 
 export default function NavBar() {
     return (
         <header className="topnavBackground" id="navbar">
             <div className='topnav'>
                 <div id='googleLogin'>
-                    <Link href="/"><img src={umaiBlack}></img></Link>
+                    <Link href="/"><img src={umaiBlack} alt='image'></img></Link>
                 </div>
                 <div className='topnavLinks'>
                     <Link href='/wip'>Add Recipe</Link>
