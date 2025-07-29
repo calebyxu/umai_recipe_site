@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 export default function Home() {
     //useState retains data 
-    const [json, setJson] = useState({ data: [] });
+    const [json, setJson] = useState();
 
     //fetch to db conn
     useEffect(() => {
