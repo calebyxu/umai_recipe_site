@@ -28,10 +28,5 @@ export async function GET() {
     const sql = neon(process.env.DATABASE_URL!);
     const data = await sql`SELECT * FROM playing_with_neon;`;
 
-    console.log(process.env.DATABASE_URL);
-    // console.log(process.env.POSTGRES_URL);
-
-    console.log(data);
-
     return NextResponse.json({ data });
 }
