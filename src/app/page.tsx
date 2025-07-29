@@ -22,8 +22,9 @@ export default function Home() {
                 {Array.isArray(json.data) ? (
                     json.data.map((item, i) => 
                         (<h1 key={i}>{item}</h1>))
-                    ) : 
-                    <h1>no data</h1>}
+                    ) : (
+                    <h1>no data</h1>
+                )}
             </div>
         </>
     );
