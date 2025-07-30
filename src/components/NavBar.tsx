@@ -7,7 +7,7 @@ export default function NavBar() {
         <header className="topnavBackground" id="navbar">
             <div className='topnav'>
                 <div id='googleLogin'>
-                    <Link href="/"><Image src='./img/umaiBlackLogo.svg' width={500} height={500} className='topnavImg' alt='image'></Image></Link>
+                    <Link href="/"><Image src='./img/umaiBlackLogo.svg' className='topnavImg' alt='image'></Image></Link>
                 </div>
                 <div className='topnavLinks'>
                     <Link href='/wip'>Add Recipe</Link>
