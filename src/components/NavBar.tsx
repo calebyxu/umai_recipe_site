@@ -22,6 +22,8 @@ export default function NavBar() {
 
         console.log("Encoded JWT ID token: " + response.credential);
 
+        console.log('hello');
+
         const responsePayload = decodeJWT(response.credential);
 
         console.log("Decoded JWT ID token fields:");
