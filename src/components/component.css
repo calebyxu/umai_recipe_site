@@ -27,8 +27,13 @@
     color: #FF7D29;
     margin-left: 16px;
 }
-  
-.topnav a{
+
+.topnavLinks{
+    display: flex;
+    align-items: center;
+}
+
+.topnavLinks a{
     float: left;
     text-align: center;
     padding: 5px 25px;
@@ -38,16 +43,11 @@
     height: 100%;
 }
   
-.topnav a:hover {
+.topnavLinks a:hover {
     background-color: #FFDBBA;
     color: black;
     padding: 35px 25px;
     transition: 0.5s;
-}
-
-.topnavLinks{
-    display: flex;
-    align-items: center;
 }
 
 .topnavImg{
