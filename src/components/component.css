@@ -28,26 +28,29 @@
     margin-left: 16px;
 }
 
+.topnav a {
+    float: left;
+    text-align: center;
+    padding: 5px 25px;
+    text-decoration: none;
+    height: 100%;
+}
+
+.topnav a:hover {
+    background-color: #FFDBBA;
+    color: black;
+    padding: 35px 25px;
+    transition: 0.5s;
+}
+
 .topnavLinks{
     display: flex;
     align-items: center;
 }
 
 .topnavLinks a{
-    float: left;
-    text-align: center;
-    padding: 5px 25px;
-    text-decoration: none;
     color: white;
     border-right: 2px solid white;
-    height: 100%;
-}
-  
-.topnavLinks a:hover {
-    background-color: #FFDBBA;
-    color: black;
-    padding: 35px 25px;
-    transition: 0.5s;
 }
 
 .topnavImg{
