@@ -77,3 +77,58 @@
 .g_id_signin {
     align-self: center;
 }
+
+/* Media Queries */
+@media (max-width: 1500px) {
+    /* Navbar */
+    .topnav a{
+        font-size: 20px;
+        padding: 5px 15px;
+    }
+
+    .topnav_img {
+        padding-top: 5px;
+    }
+
+    .topnav_background {
+        height: 80px;
+    }
+}
+
+@media (max-width: 1100px) {
+    /* Navbar */
+    .topnav a{
+        font-size: 13px;
+        padding: 5px 10px;
+    }
+
+    .topnav_img {
+        width: 50px;
+        height: auto;
+        padding-top: 4px;
+    }
+
+    .topnav_background {
+        height: 60px;
+    }
+}
+
+@media (max-width: 700px) {
+    /* Navbar */
+    .topnav {
+        margin: 0px 50px;
+    }
+
+    .topnav a{
+        font-size: 10px;
+    }
+
+    .topnav_img {
+        width: 30px;
+        height: auto;
+    }
+
+    .topnav_background{
+        height: 40px;
+    }
+}
