@@ -95,6 +95,8 @@
 
     .topnav_img {
         padding-top: 5px;
+        width: auto;
+        height: auto;
     }
 
     .topnav_background {
