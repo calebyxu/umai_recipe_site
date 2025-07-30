@@ -1,8 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image'
 import '../components/component.css';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 export default function NavBar() {
+
+
     return (
         <header className="topnavBackground" id="navbar">
             <div className='topnav'>
