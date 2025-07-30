@@ -10,7 +10,7 @@ export default function NavBar() {
         <header className="topnavBackground" id="navbar">
             <div className='topnav'>
                 <div id='googleLogin'>
-                    <Link href="/"><Image src='./img/umaiBlackLogo.svg' className='topnavImg' alt='image'></Image></Link>
+                    <Link href="/"><div className='topnavImg'><Image src='./img/umaiBlackLogo.svg' fill={true} alt='image'></Image></div></Link>
                     <div id="g_id_onload"
                         data-client_id="1063240373526-setg3qv32eos774o69n7erif729utnos.apps.googleusercontent.com"
                         data-context="signin"

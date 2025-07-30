@@ -1,6 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import './home.css';
 
 export default function Home() {
     //init json model
@@ -30,7 +33,7 @@ export default function Home() {
 
     return (
         <>
-            <h1>hello this is the home page</h1>
+            {/* <h1>hello this is the home page</h1>
             <div>
                 {Array.isArray(json.data) ? (
                     json.data.map((item) => 
@@ -38,7 +41,38 @@ export default function Home() {
                     ) : (
                     <h1>no data</h1>
                 )}
+            </div> */}
+            <div id='contentWrapper'>
+                <div id="hero">
+                    <div id="heroContainer">
+                        <Image src='/img/picnicUserLanding.jpg' fill={true} objectFit={"cover"} alt='image'></Image>
+                        <div id="heroTextWrapper">
+                            <h1 id="heroText">Welcome</h1>
+                        </div>
+                    </div>
+                </div>
+                <div className="separator">
+                    <h1>Find Something New</h1>
+                    <Link href="/discover">Discover Now</Link>
+                </div>
+                <div className="gridContainer">
+                    <div className="gridText">
+                        <h1>Your Recipes</h1>
+                        <p>
+                            Sometimes the best food is something that you have already made.
+                            Rejoin your world of culinary inspiration with your treasure trove of tantalizing recipes.
+                            Dive into a mouthwatering journey that promises to satisfy every craving and ignite your passion
+                            for cooking.
+                            Click below to see what you have cooking!
+                        </p>
+                        <Link className="link" href="/home">Cooking Time!</Link>
+                    </div>
+                    <div className="gridDisplay">
+                        <div className='gridImg'><Image src='/img/recipes/katsudon.jpg' fill={true} objectFit={'cover'} alt='image'></Image></div>
+                    </div>
+                </div>
             </div>
+            <footer></footer>
         </>
     );
 }

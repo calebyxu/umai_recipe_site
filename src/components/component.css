@@ -54,8 +54,9 @@
 }
 
 .topnavImg{
+    position: relative;
     width: 80px;
-    height: auto;
+    height: 80px;
     padding: 10px 5px 0px 5px;
     margin: 0px;
     border-width: 0px;
@@ -91,6 +92,7 @@
 
     .topnavImg {
         width: 75px;
+        height: 75px;
         padding-top: 5px;
     }
 
@@ -108,7 +110,7 @@
 
     .topnavImg {
         width: 50px;
-        height: auto;
+        height: 50px;
         padding-top: 4px;
     }
 
@@ -129,7 +131,7 @@
 
     .topnavImg {
         width: 30px;
-        height: auto;
+        height: 30px;
     }
 
     .topnavBackground{
