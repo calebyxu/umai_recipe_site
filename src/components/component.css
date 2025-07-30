@@ -33,6 +33,7 @@
     text-align: center;
     text-decoration: none;
     height: 100%;
+    padding: 0;
 }
 
 .topnav a:hover {
