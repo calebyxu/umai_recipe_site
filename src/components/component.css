@@ -58,7 +58,7 @@
 }
 
 .topnavImg{
-    width: 90px;
+    width: 80px;
     height: auto;
     padding: 10px 5px 0px 5px;
     margin: 0px;
@@ -94,6 +94,7 @@
     }
 
     .topnavImg {
+        width: 75px;
         padding-top: 5px;
     }
 
