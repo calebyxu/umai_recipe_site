@@ -49,10 +49,6 @@
     align-items: center;
 }
 
-.topnavLinks a {
-    padding: 5px 25px;
-}
-
 .topnavLinks a{
     color: white;
     border-right: 2px solid white;
