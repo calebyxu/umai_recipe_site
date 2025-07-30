@@ -6,9 +6,9 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 export default function NavBar() {
 
     function decodeJWT(token: string) {
-        let base64Url = token.split(".")[1];
-        let base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-        let jsonPayload = decodeURIComponent(
+        const base64Url = token.split(".")[1];
+        const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+        const jsonPayload = decodeURIComponent(
             atob(base64)
                 .split("")
                 .map(function (c) {
