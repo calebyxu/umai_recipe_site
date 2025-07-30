@@ -31,7 +31,6 @@
 .topnav a {
     float: left;
     text-align: center;
-    padding: 5px 25px;
     text-decoration: none;
     height: 100%;
 }
@@ -46,6 +45,10 @@
 .topnavLinks{
     display: flex;
     align-items: center;
+}
+
+.topnavLinks a {
+    padding: 5px 25px;
 }
 
 .topnavLinks a{
