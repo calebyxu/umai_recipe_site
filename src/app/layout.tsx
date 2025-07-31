@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <GoogleOAuthProvider clientId="1063240373526-setg3qv32eos774o69n7erif729utnos.apps.googleusercontent.com">
+        <GoogleOAuthProvider clientId="630460929969-47is0aidbr8r9jitmhd12v3m6000875b.apps.googleusercontent.com">
             <html lang="en">
                 <body className={kameron.className}>
                     <NavBar />
