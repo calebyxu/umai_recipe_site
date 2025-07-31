@@ -1,7 +1,9 @@
+'use client'
+
 import Link from 'next/link';
 import Image from 'next/image'
 import '../components/component.css';
-import { GoogleOAuthProvider } from '@react-oauth/google';
+import { GoogleLogin } from '@react-oauth/google';
 
 export default function NavBar() {
 
@@ -18,7 +20,7 @@ export default function NavBar() {
         );
         return JSON.parse(jsonPayload);
     }
-    async function handleCredentialResponse(response: {credential: string}) {
+    async function handleCredentialResponse(response: { credential: string }) {
 
         console.log("Encoded JWT ID token: " + response.credential);
 
@@ -68,7 +70,7 @@ export default function NavBar() {
             <div className='topnav'>
                 <div id='googleLogin'>
                     <Link href="/"><div className='topnavImg'><Image src='./img/umaiBlackLogo.svg' fill={true} alt='image'></Image></div></Link>
-                    <div id="g_id_onload"
+                    {/* <div id="g_id_onload"
                         data-client_id="1063240373526-setg3qv32eos774o69n7erif729utnos.apps.googleusercontent.com"
                         data-context="signin"
                         data-ux_mode="popup"
@@ -82,7 +84,15 @@ export default function NavBar() {
                         data-text="signin_with"
                         data-size="large"
                         data-logo_alignment="left">
-                    </div>
+                    </div> */}
+                    <GoogleLogin
+                        onSuccess={credentialResponse => {
+                            console.log(credentialResponse);
+                        }}
+                        onError={() => {
+                            console.log('Login Failed');
+                        }}
+                    />
                 </div>
                 <div className='topnavLinks'>
                     <Link href='/wip'>Add Recipe</Link>
