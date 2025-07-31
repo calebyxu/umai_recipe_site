@@ -7,6 +7,12 @@ import '../components/component.css';
 import { GoogleLogin } from '@react-oauth/google';
 
 export default function NavBar() {
+    interface credentialResponse {
+        credential?: string;
+        select_by?: string;
+        clientId?: string;
+    }
+
     const [buttonSize, setButtonSize] = useState<'small' | 'medium' | 'large'>('large');
 
     useEffect(() => {
@@ -38,11 +44,12 @@ export default function NavBar() {
         );
         return JSON.parse(jsonPayload);
     }
-    async function handleCredentialResponse(response: { credential: string }) {
+    async function handleCredentialResponse(response: credentialResponse) {
+        if (!response.credential) {
+            return;
+        }
 
         console.log("Encoded JWT ID token: " + response.credential);
-
-        console.log('hello');
 
         const responsePayload = decodeJWT(response.credential);
 
@@ -104,9 +111,7 @@ export default function NavBar() {
                         data-logo_alignment="left">
                     </div> */}
                     <GoogleLogin size={buttonSize}
-                        onSuccess={credentialResponse => {
-                            console.log(credentialResponse);
-                        }}
+                        onSuccess={handleCredentialResponse}
                         onError={() => {
                             console.log('Login Failed');
                         }}
