@@ -1,0 +1,164 @@
+/* General */
+:root {}
+
+/* Navbar */
+.topnav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    font-family: 'Kameron', 'serif';
+    font-size: 22px;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    margin: 0px 120px;
+    height: 100%;
+}
+
+.topnav button {
+    border-width: 0px;
+    border-radius: 10px;
+    width: 120px;
+    height: 45px;
+    color: #FF7D29;
+    margin-left: 16px;
+}
+
+.topnav a {
+    float: left;
+    text-align: center;
+    text-decoration: none;
+    height: 100%;
+    padding: 5px 25px;
+}
+
+.topnav a:hover {
+    background-color: #FFDBBA;
+    color: black;
+    padding: 35px 25px;
+    transition: 0.5s;
+}
+
+.topnavLinks {
+    display: flex;
+    align-items: center;
+}
+
+.topnavLinks a {
+    color: white;
+    border-right: 2px solid white;
+}
+
+.topnavImg {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    padding: 10px 5px 0px 5px;
+    margin: 0px;
+    border-width: 0px;
+}
+
+.topnavBackground {
+    background-color: #FF7D29;
+    width: 100%;
+    height: 95px;
+    position: fixed;
+    top: 0;
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+#googleLogin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 350px;
+}
+
+.g_id_signin {
+    width: 213px;
+    height: 44px;
+    align-self: center;
+}
+
+/* Media Queries */
+@media (max-width: 1500px) {
+
+    /* Navbar */
+    .topnav a {
+        font-size: 20px;
+        padding: 5px 15px;
+    }
+
+    .topnav a:hover {
+        padding: 30px 15px;
+    }
+
+    .topnavImg {
+        width: 75px;
+        height: 75px;
+        padding-top: 5px;
+    }
+
+    .topnavBackground {
+        height: 80px;
+    }
+
+    #googleLogin {
+        width: 300px;
+    }
+}
+
+@media (max-width: 1100px) {
+
+    /* Navbar */
+    .topnav a {
+        font-size: 13px;
+        padding: 5px 10px;
+    }
+
+    .topnav a:hover {
+        padding: 30px 10px;
+    }
+
+    .topnavImg {
+        width: 50px;
+        height: 50px;
+        padding-top: 4px;
+    }
+
+    .topnavBackground {
+        height: 60px;
+    }
+
+    #googleLogin {
+        width: 250px;
+    }
+}
+
+@media (max-width: 800px) {
+
+    /* Navbar */
+    .topnav {
+        margin: 0px 50px;
+    }
+
+    .topnav a {
+        font-size: 10px;
+    }
+
+    .topnavImg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .topnavBackground {
+        height: 40px;
+    }
+
+    #googleLogin {
+        width: 200px;
+    }
+}

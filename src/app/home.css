@@ -1,0 +1,460 @@
+/* General */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Kameron', 'serif';
+    font-size: 22px;
+    font-weight: normal;
+    font-style: normal;
+}
+
+footer {
+    background-color: #FF7D29;
+    margin: 80px 0px 0px 0px;
+    height: 100px;
+    width: 100%;
+}
+
+#contentWrapper {
+    margin: 0px 250px;
+}
+
+/* Separator */
+.separator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    width: auto;
+    background-color: #FF7D29;
+    margin-top: 100px;
+    padding: 0px 50px;
+    font-size: 20px;
+}
+
+.separator a {
+    text-decoration: none;
+    color: white;
+    border-bottom: 2px solid white;
+    padding: 10px;
+}
+
+.separator a:hover {
+    background-color: #FFDBBA;
+    color: black;
+    transition: 0.2s;
+}
+
+/* Header */
+#hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#heroContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 650px;
+    width: 1400px;
+    /* background-image: url("../images/picnicUserLanding.jpg"); */
+    position: relative;
+}
+
+#heroTextWrapper {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    background: rgba(0, 0, 0, 0.85);
+    height: 200px;
+    width: 450px;
+    z-index: 1;
+}
+
+#heroTextWrapper h1 {
+    margin: 0;
+}
+
+/* Owl Carousel */
+.item {
+    width: 200px;
+    height: 300px;
+    margin: 20px 0px;
+}
+
+.carouselOverlay {
+    position: relative;
+    bottom: 100%;
+    background-color: #008CBA;
+    overflow: hidden;
+    width: 100%;
+    transition: .5s ease;
+}
+
+.carouselOverlay:hover {
+    height: 100%;
+}
+
+.carouselWrapper {}
+
+.carouselImg {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Grid Displays */
+.gridContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 100px;
+    height: 500px;
+}
+
+.gridContainer a {
+    text-decoration: none;
+    color: #FF7D29;
+    background-color: white;
+}
+
+.gridDisplay {
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+}
+
+.gridImg {
+    width: 350px;
+    height: 100%;
+    position: relative;
+}
+
+.gridText {
+    background-color: #FF7D29;
+    padding: 25px 25px 40px 50px;
+    width: 100%;
+}
+
+.gridText a {
+    padding: 10px;
+}
+
+.gridText p {
+    line-height: 1.6;
+}
+
+/* Media Queries */
+@media (max-width: 1500px) {
+
+    /* General */
+    #contentWrapper {
+        margin: 0px 200px;
+    }
+
+    /* Hero */
+    #heroContainer {
+        width: 1300px;
+        height: 600px;
+    }
+
+    /* Owl carousel */
+    .carouselImg {
+        height: 250px;
+    }
+
+    .owl-stage-outer {
+        height: 300px;
+    }
+}
+
+@media (max-width: 1300px) {
+
+    /* General */
+    h1 {
+        font-size: 30px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    #contentWrapper {
+        margin: 0px 175px;
+    }
+
+    /* Hero */
+    #heroContainer {
+        width: 1100px;
+        height: 500px;
+    }
+
+    #heroTextWrapper {
+        width: 350px;
+        height: 175px;
+    }
+
+    /* Separator */
+    .separator {
+        height: 80px;
+    }
+
+    .separator a {
+        font-size: 15px;
+    }
+
+    /* Owl carousel */
+    .carouselImg {
+        height: 200px;
+    }
+
+    .owl-stage-outer {
+        height: 230px;
+    }
+
+    /* grid */
+    .gridContainer {
+        height: 300px;
+    }
+
+    .gridText a {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .gridImg {
+        width: 200px;
+    }
+}
+
+@media (max-width: 1100px) {
+
+    /* General */
+    h1 {
+        font-size: 20px;
+    }
+
+    #contentWrapper {
+        margin: 0px 100px;
+    }
+
+    /* Hero */
+    #heroContainer {
+        width: 900px;
+        height: 400px;
+    }
+
+    #heroTextWrapper {
+        margin-top: 60px;
+        width: 250px;
+        height: 100px;
+    }
+
+    /* Separator */
+    .separator {
+        height: 60px;
+        width: auto;
+        margin-top: 50px;
+    }
+
+    .separator a {
+        font-size: 10px;
+        padding: 5px;
+    }
+}
+
+@media (max-width: 900px) {
+
+    /* General */
+    h1 {
+        font-size: 12px;
+    }
+
+    p {
+        font-size: 10px;
+    }
+
+    footer {
+        height: 40px;
+    }
+
+    #contentWrapper {
+        margin: 0px 50px;
+    }
+
+    /* Hero */
+    #heroContainer {
+        width: 700px;
+        height: 200px;
+    }
+
+    #heroTextWrapper {
+        margin-top: 60px;
+        width: 200px;
+        height: 70px;
+    }
+
+    /* Separator */
+    .separator {
+        height: 40px;
+        width: auto;
+    }
+
+    .separator a {
+        font-size: 7px;
+    }
+
+    /* Owl carousel */
+    .carouselImg {
+        height: 120px;
+    }
+
+    .item {
+        width: 120px;
+    }
+
+    .owl-stage-outer {
+        height: 160px;
+    }
+
+    /* grid */
+    .gridContainer {
+        height: 250px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    /* General */
+    h1 {
+        font-size: 12px;
+    }
+
+    p {
+        font-size: 7px;
+    }
+
+    footer {
+        height: 40px;
+    }
+
+    #contentWrapper {
+        margin: 0px 50px;
+    }
+
+    /* Hero */
+    #heroContainer {
+        width: 100%;
+        height: 150px;
+    }
+
+    #heroTextWrapper {
+        margin-top: 40px;
+        width: 150px;
+        height: 50px;
+    }
+
+    /* Owl carousel */
+    .carouselImg {
+        height: 100px;
+    }
+
+    .item {
+        width: 100px;
+    }
+
+    .owl-stage-outer {
+        height: 130px;
+    }
+
+    /* grid */
+    .gridContainer {
+        margin-top: 50px;
+        height: 200px;
+    }
+
+    .gridText {
+        padding: 20px;
+    }
+
+    .gridText a {
+        font-size: 5px;
+        padding: 5px;
+    }
+
+    .gridDisplay {
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    /* General */
+    h1 {
+        font-size: 10px;
+    }
+
+    /* Hero */
+    #heroContainer {
+        height: 120px;
+    }
+
+    #heroTextWrapper {
+        margin-top: 40px;
+        width: 120px;
+        height: 35px;
+    }
+
+    /* Separator */
+    .separator {
+        padding: 0px 25px;
+    }
+
+    .separator a {
+        font-size: 7px;
+        padding: 2px;
+    }
+
+    /* Carousel */
+    .carouselImg {
+        height: 80px;
+    }
+
+    .item {
+        width: 80px;
+    }
+
+    .owl-stage-outer {
+        height: 100px;
+    }
+
+    /* grid */
+    .gridContainer {
+        display: flex;
+        flex-direction: column;
+        margin-top: 25px;
+        height: 200px;
+    }
+
+    .gridText {
+        padding: 20px;
+    }
+
+    .gridText a {
+        font-size: 5px;
+        padding: 5px;
+    }
+
+    .gridDisplay {
+        padding-left: 20px;
+    }
+
+    .gridImg {
+        width: 150px;
+    }
+}
