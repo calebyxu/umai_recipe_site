@@ -2,10 +2,28 @@
 
 import Link from 'next/link';
 import Image from 'next/image'
+import { useState, useEffect } from 'react';
 import '../components/component.css';
 import { GoogleLogin } from '@react-oauth/google';
 
 export default function NavBar() {
+    const [buttonSize, setButtonSize] = useState<'small' | 'medium' | 'large'>('large');
+
+    useEffect(() => {
+        const handleResize = () => {
+            const width = window.innerWidth;
+            if (width < 800) {
+                setButtonSize('small');
+            } else if (width < 1100) {
+                setButtonSize('medium');
+            } else {
+                setButtonSize('large');
+            }
+        };
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     function decodeJWT(token: string) {
         const base64Url = token.split(".")[1];
@@ -85,7 +103,7 @@ export default function NavBar() {
                         data-size="large"
                         data-logo_alignment="left">
                     </div> */}
-                    <GoogleLogin
+                    <GoogleLogin size={buttonSize}
                         onSuccess={credentialResponse => {
                             console.log(credentialResponse);
                         }}

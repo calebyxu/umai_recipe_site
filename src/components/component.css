@@ -1,7 +1,5 @@
 /* General */
-:root {
-
-}
+:root {}
 
 /* Navbar */
 .topnav {
@@ -10,7 +8,7 @@
     align-items: center;
     justify-content: space-between;
     overflow: hidden;
-    font-family: 'Kameron','serif';
+    font-family: 'Kameron', 'serif';
     font-size: 22px;
     font-weight: normal;
     font-style: normal;
@@ -43,17 +41,17 @@
     transition: 0.5s;
 }
 
-.topnavLinks{
+.topnavLinks {
     display: flex;
     align-items: center;
 }
 
-.topnavLinks a{
+.topnavLinks a {
     color: white;
     border-right: 2px solid white;
 }
 
-.topnavImg{
+.topnavImg {
     position: relative;
     width: 80px;
     height: 80px;
@@ -62,7 +60,7 @@
     border-width: 0px;
 }
 
-.topnavBackground{
+.topnavBackground {
     background-color: #FF7D29;
     width: 100%;
     height: 95px;
@@ -75,7 +73,8 @@
 #googleLogin {
     display: flex;
     justify-content: space-between;
-    width: 300px;
+    align-items: center;
+    width: 350px;
 }
 
 .g_id_signin {
@@ -86,10 +85,15 @@
 
 /* Media Queries */
 @media (max-width: 1500px) {
+
     /* Navbar */
-    .topnav a{
+    .topnav a {
         font-size: 20px;
         padding: 5px 15px;
+    }
+
+    .topnav a:hover {
+        padding: 30px 15px;
     }
 
     .topnavImg {
@@ -101,13 +105,22 @@
     .topnavBackground {
         height: 80px;
     }
+
+    #googleLogin {
+        width: 300px;
+    }
 }
 
 @media (max-width: 1100px) {
+
     /* Navbar */
-    .topnav a{
+    .topnav a {
         font-size: 13px;
         padding: 5px 10px;
+    }
+
+    .topnav a:hover {
+        padding: 30px 10px;
     }
 
     .topnavImg {
@@ -119,15 +132,20 @@
     .topnavBackground {
         height: 60px;
     }
+
+    #googleLogin {
+        width: 250px;
+    }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
+
     /* Navbar */
     .topnav {
         margin: 0px 50px;
     }
 
-    .topnav a{
+    .topnav a {
         font-size: 10px;
     }
 
@@ -136,7 +154,11 @@
         height: 30px;
     }
 
-    .topnavBackground{
+    .topnavBackground {
         height: 40px;
+    }
+
+    #googleLogin {
+        width: 200px;
     }
 }
