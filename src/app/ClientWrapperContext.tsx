@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 
 type ClientContextType = {
     responsePayload : string
@@ -8,10 +8,8 @@ type ClientContextType = {
 
 export const ClientContext = createContext<ClientContextType | null>(null);
 
-// export default function ClientWrapperContext() {
-//     return (
-//         <>
-            
-//         </>
-//     )
-// }
+export const useClientContext = () => {
+    const userContext = useContext(ClientContext);
+    if (!userContext) throw new Error('useMyContext must be used inside ClientWrapper');
+    return userContext;
+};
