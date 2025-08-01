@@ -28,7 +28,7 @@ interface payloadProps {
     responsePayload: string
 };
 
-export default function Home(/*{ responsePayload }: payloadProps*/) {
+export default function Home() {
 
     const initialJson: JsonResponse = { data: [] };
 
