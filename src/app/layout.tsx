@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Kameron } from 'next/font/google';
 /* React imports */
-import { createContext } from 'react';
+// import { createContext } from 'react';
 import { useState } from 'react';
 /* General imports */
 import "../css/globals.css";
