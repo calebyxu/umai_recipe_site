@@ -8,7 +8,7 @@ import NavBar from '../components/NavBar';
 import { ClientContext } from './ClientWrapperContext'
 
 export default function ClientWrapper({ children }: { children: React.ReactNode }) {
-    const [responsePayload, setResponsePayload] = useState<string>('');
+    const [responsePayload, setResponsePayload] = useState('');
 
     return (
         <ClientContext.Provider value={{ responsePayload }}>
