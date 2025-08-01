@@ -6,18 +6,25 @@ import Image from 'next/image'
 /* React */
 import { useState, useEffect, useContext } from 'react';
 /* General */
+import { UserInfo } from '../app/page';
 import '../components/component.css';
 import { GoogleLogin } from '@react-oauth/google';
 
-export default function NavBar() {
-    interface credentialResponse {
-        credential?: string;
-        select_by?: string;
-        clientId?: string;
-    }
+interface payloadProps {
+    setResponsePayload: React.Dispatch<React.SetStateAction<string>>
+};
+
+interface credentialResponse {
+    credential?: string;
+    select_by?: string;
+    clientId?: string;
+};
+
+export default function NavBar({ setResponsePayload }: payloadProps) {
 
     const [buttonSize, setButtonSize] = useState<'small' | 'medium' | 'large'>('large');
-    const [responsePayload, setResponsePayload] = useState();
+
+    const userInfo = useContext(UserInfo);
 
     useEffect(() => {
         const handleResize = () => {

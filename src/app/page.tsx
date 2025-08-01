@@ -1,21 +1,29 @@
 'use client'
+/* Next js */
 
+/* React */
 import { useState, useEffect } from 'react';
+import { createContext } from 'react';
+/* General */
 import Image from 'next/image';
 import Link from 'next/link';
 import './home.css';
 
-export default function Home() {
-    //init json model
-    interface DataItem {
-        id: number;
-        name: string;
-        value: number;
-    }
+//context allows for data distribution amongst pages
+export const UserInfo = createContext(null);
 
-    interface JsonResponse {
-        data: DataItem[];
-    };
+//init json model
+interface DataItem {
+    id: number;
+    name: string;
+    value: number;
+};
+
+interface JsonResponse {
+    data: DataItem[];
+};
+
+export default function Home() {
 
     const initialJson: JsonResponse = { data: [] };
 
