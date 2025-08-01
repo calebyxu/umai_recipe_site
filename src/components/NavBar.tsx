@@ -96,7 +96,7 @@ export default function NavBar({ setResponsePayload }: payloadProps) {
                         onError={() => {
                             console.log('Login Failed');
                         }}
-                        ux_mode="popup"
+                        ux_mode="redirect"
                         auto_select={false}
                     />
                 </div>
