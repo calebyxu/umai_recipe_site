@@ -9,9 +9,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import './home.css';
 
-//context allows for data distribution amongst pages
-export const UserInfo = createContext(null);
-
 //init json model
 interface DataItem {
     id: number;
