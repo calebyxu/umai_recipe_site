@@ -6,7 +6,6 @@ import Image from 'next/image'
 /* React */
 import { useState, useEffect, useContext } from 'react';
 /* General */
-import { UserInfo } from '../app/page';
 import '../components/component.css';
 import { GoogleLogin } from '@react-oauth/google';
 
@@ -23,8 +22,6 @@ interface credentialResponse {
 export default function NavBar({ setResponsePayload }: payloadProps) {
 
     const [buttonSize, setButtonSize] = useState<'small' | 'medium' | 'large'>('large');
-
-    const userInfo = useContext(UserInfo);
 
     useEffect(() => {
         const handleResize = () => {
@@ -63,7 +60,7 @@ export default function NavBar({ setResponsePayload }: payloadProps) {
 
         console.log("Encoded JWT ID token: " + response.credential);
 
-        setResponsePayload(decodeJWT(response.credential));
+        setResponsePayload(decodeJWT(response.credential).name);
 
         // console.log("Decoded JWT ID token fields:");
         // console.log("  Full Name: " + responsePayload.name);
@@ -99,6 +96,8 @@ export default function NavBar({ setResponsePayload }: payloadProps) {
                         onError={() => {
                             console.log('Login Failed');
                         }}
+                        ux_mode="popup"
+                        auto_select={false}
                     />
                 </div>
                 <div className='topnavLinks'>

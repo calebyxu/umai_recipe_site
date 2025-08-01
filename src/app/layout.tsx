@@ -2,14 +2,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Kameron } from 'next/font/google';
-/* React imports */
-import { createContext } from 'react';
-import { useState } from 'react';
 /* General imports */
 import "../css/globals.css";
 import "../css/normalize.css";
-import NavBar from '../components/NavBar';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import ClientWrapper from './ClientWrapper';
 
 // const geistSans = Geist({
 //     variable: "--font-geist-sans",
@@ -31,14 +28,14 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-    const [responsePayload, setResponsePayload] = useState<string>('');
 
     return (
         <GoogleOAuthProvider clientId="630460929969-47is0aidbr8r9jitmhd12v3m6000875b.apps.googleusercontent.com">
             <html lang="en">
                 <body className={kameron.className}>
-                    <NavBar setResponsePayload={setResponsePayload} />
-                    {children}
+                    <ClientWrapper>
+                        {children}
+                    </ClientWrapper>
                 </body>
             </html>
         </GoogleOAuthProvider>

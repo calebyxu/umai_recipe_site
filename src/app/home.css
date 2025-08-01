@@ -100,12 +100,10 @@ footer {
     height: 100%;
 }
 
-.carouselWrapper {}
-
 .carouselImg {
     width: 200px;
     height: 300px;
-    object-fit: cover;
+    position: relative;
 }
 
 /* Grid Displays */
@@ -136,6 +134,9 @@ footer {
 }
 
 .gridText {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
     background-color: #FF7D29;
     padding: 25px 25px 40px 50px;
     width: 100%;
@@ -143,6 +144,13 @@ footer {
 
 .gridText a {
     padding: 10px;
+    width: 175px;
+}
+
+.gridText a:hover {
+    background-color: black;
+    color: white;
+    transition: 0.3s;
 }
 
 .gridText p {
@@ -225,6 +233,7 @@ footer {
     .gridText a {
         font-size: 12px;
         padding: 8px;
+        width: 100px;
     }
 
     .gridImg {
@@ -326,6 +335,12 @@ footer {
     .gridContainer {
         height: 250px;
     }
+
+    .gridText a {
+        font-size: 8px;
+        width: 70px;
+        padding: 5px;
+    }
 }
 
 @media (max-width: 700px) {
@@ -384,7 +399,8 @@ footer {
 
     .gridText a {
         font-size: 5px;
-        padding: 5px;
+        padding: 3px;
+        width: 40px;
     }
 
     .gridDisplay {

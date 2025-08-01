@@ -2,17 +2,19 @@
 /* Next js */
 
 /* React */
-import { useState, useEffect } from 'react';
-import { createContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { ClientContext } from './ClientWrapperContext';
 /* General */
 import Image from 'next/image';
 import Link from 'next/link';
 import './home.css';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 //context allows for data distribution amongst pages
-export const UserInfo = createContext(null);
+// export const UserInfo = createContext(null);
 
-//init json model
+//init db json model
 interface DataItem {
     id: number;
     name: string;
@@ -23,12 +25,18 @@ interface JsonResponse {
     data: DataItem[];
 };
 
+//init payload model
+interface payloadProps {
+    responsePayload: string
+};
+
 export default function Home() {
 
     const initialJson: JsonResponse = { data: [] };
 
     //useState retains data 
     const [json, setJson] = useState<JsonResponse>(initialJson);
+    const useResponseContext = useContext(ClientContext);
 
     //fetch to db conn
     useEffect(() => {
@@ -38,6 +46,27 @@ export default function Home() {
         }
         fetchHello();
     }, []);
+
+    /* carousel media queries */
+    const responsive = {
+        LargeDesktop: {
+            // the naming can be any, depends on you.
+            breakpoint: { max: 4000, min: 1500 },
+            items: 5
+        },
+        desktop: {
+            breakpoint: { max: 1500, min: 1100 },
+            items: 3
+        },
+        tablet: {
+            breakpoint: { max: 1100, min: 464 },
+            items: 2
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1
+        }
+    };
 
     return (
         <>
@@ -56,6 +85,7 @@ export default function Home() {
                         <Image src='/img/picnicUserLanding.jpg' fill={true} objectFit={"cover"} alt='image'></Image>
                         <div id="heroTextWrapper">
                             <h1 id="heroText">Welcome</h1>
+                            <h1>{useResponseContext.responsePayload}</h1>
                         </div>
                     </div>
                 </div>
@@ -63,6 +93,16 @@ export default function Home() {
                     <h1>Find Something New</h1>
                     <Link href="/discover">Discover Now</Link>
                 </div>
+                <Carousel responsive={responsive} showDots={true} autoPlay={true} autoPlaySpeed={1000} infinite={true}>
+                    <div className="carouselImg"><Image src="/img/recipes/charsui.jpg" fill={true} alt='image' objectFit='cover'></Image></div>
+                    <div className="carouselImg"><Image src="/img/recipes/gyudon.jpg" fill={true} alt='image' objectFit='cover'></Image></div>
+                    <div className="carouselImg"><Image src="/img/recipes/japanese_chicken_curry.jpg" fill={true} alt='image' objectFit='cover'></Image></div>
+                    <div className="carouselImg"><Image src="/img/recipes/oyakodon.jpg" fill={true} alt='image' objectFit='cover'></Image></div>
+                    <div className="carouselImg"><Image src="/img/recipes/fried_rice.jpg" fill={true} alt='image' objectFit='cover'></Image></div>
+                    <div className="carouselImg"><Image src="/img/recipes/tea_eggs.jpg" fill={true} alt='image' objectFit='cover'></Image></div>
+                    <div className="carouselImg"><Image src="/img/recipes/katsudon.jpg" fill={true} alt='image' objectFit='cover'></Image></div>
+                    <div className="carouselImg"><Image src="/img/recipes/mapo_tofu.jpg" fill={true} alt='image' objectFit='cover'></Image></div>
+                </Carousel>
                 <div className="gridContainer">
                     <div className="gridText">
                         <h1>Your Recipes</h1>
@@ -73,7 +113,7 @@ export default function Home() {
                             for cooking.
                             Click below to see what you have cooking!
                         </p>
-                        <Link className="link" href="/home">Cooking Time!</Link>
+                        <Link href="/home">Cooking Time!</Link>
                     </div>
                     <div className="gridDisplay">
                         <div className='gridImg'><Image src='/img/recipes/katsudon.jpg' fill={true} objectFit={'cover'} alt='image'></Image></div>
