@@ -61,7 +61,8 @@ export default function Home() {
                     <div id="heroContainer">
                         <Image src='/img/picnicUserLanding.jpg' fill={true} objectFit={"cover"} alt='image'></Image>
                         <div id="heroTextWrapper">
-                            <h1 id="heroText">Welcome {useResponseContext.responsePayload}</h1>
+                            <h1 id="heroText">Welcome</h1>
+                            <h2>{useResponseContext.responsePayload}</h2>
                         </div>
                     </div>
                 </div>
