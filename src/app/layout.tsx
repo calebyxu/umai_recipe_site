@@ -39,6 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <body className={kameron.className}>
                     <NavBar setResponsePayload={setResponsePayload} />
                     {children}
+                    {responsePayload}
                 </body>
             </html>
         </GoogleOAuthProvider>
