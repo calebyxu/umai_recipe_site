@@ -1,7 +1,7 @@
 'use client'
 
 /* React */
-// import { createContext } from 'react';
+import { createContext } from 'react';
 import { useState, useContext } from 'react';
 /* General imports */
 import NavBar from '../components/NavBar';
