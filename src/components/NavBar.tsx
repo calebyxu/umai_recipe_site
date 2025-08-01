@@ -6,7 +6,6 @@ import Image from 'next/image'
 /* React */
 import { useState, useEffect, useContext } from 'react';
 /* General */
-import { UserInfo } from '../app/page';
 import '../components/component.css';
 import { GoogleLogin } from '@react-oauth/google';
 
@@ -23,8 +22,6 @@ interface credentialResponse {
 export default function NavBar({ setResponsePayload }: payloadProps) {
 
     const [buttonSize, setButtonSize] = useState<'small' | 'medium' | 'large'>('large');
-
-    const userInfo = useContext(UserInfo);
 
     useEffect(() => {
         const handleResize = () => {
