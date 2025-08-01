@@ -12,7 +12,7 @@ import './home.css';
 //context allows for data distribution amongst pages
 // export const UserInfo = createContext(null);
 
-//init json model
+//init db json model
 interface DataItem {
     id: number;
     name: string;
