@@ -11,9 +11,6 @@ import './home.css';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
-//context allows for data distribution amongst pages
-// export const UserInfo = createContext(null);
-
 //init db json model
 interface DataItem {
     id: number;
