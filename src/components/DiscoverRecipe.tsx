@@ -1,6 +1,7 @@
 'use client'
 
 /* React */
+import Image from 'next/image';
 
 /* init interfaces */
 interface RecipeInterface {
@@ -14,14 +15,19 @@ interface RecipeInterface {
     ingredients: string;
     instructions: string;
     tags: string;
-}
+};
 
 interface DiscoverRecipeProps {
     recipe: RecipeInterface;
-}
+};
 
-export default function DiscoverRecipe({ recipe }: DiscoverRecipeProps){
+export default function DiscoverRecipe({ recipe }: DiscoverRecipeProps) {
+    const imgRoute = './img/recipes';
+
     return (
-        <h1>{recipe.title}</h1>
+        <div className='card'>
+            <Image src={imgRoute, recipe.img} fill={true} alt='image'></Image>
+            <h1>{recipe.title}</h1>
+        </div>
     )
-}
+};

@@ -30,3 +30,10 @@ INSERT INTO recipes ("id", "title", "img", "video", "time", "serving", "descript
 ALTER TABLE recipes
 ALTER COLUMN video
 TYPE VARCHAR(80);
+
+UPDATE recipes
+SET img = (
+    SELECT REPLACE(img, './img/recipes/', '') as img from recipes
+    WHERE id = 3
+)
+WHERE id = 3;
