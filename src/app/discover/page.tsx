@@ -1,10 +1,11 @@
 'use client'
 
 /* react */
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, createContext } from 'react';
+import { RecipeContext } from './DiscoverContext';
 /* general */
 import './discover.css';
-import DiscoverRecipe from '../../components/DiscoverRecipe'; 
+import DiscoverRecipe from '../../components/DiscoverRecipe';
 
 interface RecipeInterface {
     id: number,
@@ -24,30 +25,42 @@ interface RecipeResponse {
 };
 
 export default function Page() {
-    //stores recipe data
+    //init context for recipes
+    const recipeContext = useContext(RecipeContext);
     const initialRecipe: RecipeResponse = { data: [] };
-    const [recipeData, setRecipeData] = useState<RecipeResponse>(initialRecipe);
+
+    //stores recipe data
+    const [recipes, setRecipes] = useState<RecipeResponse>(initialRecipe);
 
     //fetch to db conn
     useEffect(() => {
-        async function fetchHello() {
-            const res = await fetch('/api/db');
-            setRecipeData(await res.json());
+        async function fetchDb() {
+            const res = await fetch('../api/db');
+            setRecipes(await res.json());
         }
-        fetchHello();
+        fetchDb();
+        console.log('hello')
     }, []);
+
+    console.log(recipes)
 
     return (
         <div id='discoverContainer'>
             <form id="sidebar_container">
-                    
+
             </form>
             <div id='contentWrapper'>
                 <div id='header'><h1>Checkout Our Selection!</h1></div>
                 <div id='cardContainer'>
-                    <DiscoverRecipe />
-                    <DiscoverRecipe />
-                    <DiscoverRecipe />
+                    {recipes.data.length > 0 ? (
+                        <RecipeContext.Provider value={recipes}>
+                            {recipes.data && recipes.data.map((recipe) => (
+                                <DiscoverRecipe key={recipe.id} recipe={recipe}/>
+                            ))}
+                        </RecipeContext.Provider>
+                    ) : (
+                        <p>loading recipes...</p>
+                    )}
                 </div>
             </div>
         </div>

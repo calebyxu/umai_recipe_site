@@ -37,11 +37,11 @@ export default function Home() {
 
     //fetch to db conn
     useEffect(() => {
-        async function fetchHello() {
+        async function fetchDb() {
             const res = await fetch('/api/db');
             setJson(await res.json());
         }
-        fetchHello();
+        fetchDb();
     }, []);
 
     /* carousel media queries */

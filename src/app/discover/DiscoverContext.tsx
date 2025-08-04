@@ -1,8 +1,7 @@
 'use client'
 
-/* React */
+import { createContext, useContext } from 'react';
 
-/* init interfaces */
 interface RecipeInterface {
     id: number;
     title: string;
@@ -16,12 +15,10 @@ interface RecipeInterface {
     tags: string;
 }
 
-interface DiscoverRecipeProps {
-    recipe: RecipeInterface;
-}
+interface RecipeResponse {
+    data: RecipeInterface[];
+};
 
-export default function DiscoverRecipe({ recipe }: DiscoverRecipeProps){
-    return (
-        <h1>{recipe.title}</h1>
-    )
-}
+const initialRecipe: RecipeResponse = { data: [] };
+export const RecipeContext = createContext<RecipeResponse>(initialRecipe);
+
