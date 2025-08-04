@@ -7,7 +7,7 @@ import { ClientContext } from './ClientWrapperContext';
 /* General */
 import Image from 'next/image';
 import Link from 'next/link';
-import './home.css';
+import '../css/home.css';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 

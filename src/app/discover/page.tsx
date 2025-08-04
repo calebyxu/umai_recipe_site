@@ -4,7 +4,7 @@
 import { useState, useEffect, useContext, createContext } from 'react';
 import { RecipeContext } from './DiscoverContext';
 /* general */
-import './discover.css';
+import '../../css/discover.css';
 import DiscoverRecipe from '../../components/DiscoverRecipe';
 
 interface RecipeInterface {
@@ -46,11 +46,11 @@ export default function Page() {
 
     return (
         <div id='discoverContainer'>
-            <form id="sidebar_container">
+            <form id="sidebarContainer">
 
             </form>
             <div id='contentWrapper'>
-                <div id='header'><h1>Checkout Our Selection!</h1></div>
+                <h1 id='header'>Checkout Our Selection!</h1>
                 <div id='cardContainer'>
                     {recipes.data.length > 0 ? (
                         <RecipeContext.Provider value={recipes}>

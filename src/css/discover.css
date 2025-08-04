@@ -2,9 +2,14 @@
 :root {
     --darkCyan_blue: #2CA4AB;
     --smokey_white: #F1F1F1;
+    --orange: #FF7D29;
 }
 
 /* General */
+body {
+    color: black;
+}
+
 p {
     margin-top: 20px;
     padding: 0px;
@@ -23,7 +28,7 @@ li {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 80px 250px 50px 300px;
+    margin: 100px 60px 50px 300px;
 }
 
 #header {
@@ -31,6 +36,11 @@ li {
     align-items: center;
     justify-content: center;
     margin-top: 30px;
+    color: white;
+}
+
+#contentWrapper {
+    margin-top: 50px;
 }
 
 /* Recipe Cards */
@@ -44,46 +54,67 @@ li {
 .card {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 250px;
     height: 415px;
     margin: 40px;
     padding: 10px;
     background-color: #F1F1F1;
     overflow: hidden;
+    border-radius: 10px;
 }
 
-.cardContainerInfo {
+.cardImg {
+    width: 220px;
+    height: 200px;
+    position: relative;
+    margin: 0 auto;
+    border-radius: 10px 0 0 10px;
+}
+
+.cardInfo {
     display: flex;
     flex-direction: column;
     margin: 0px 10px;
 }
 
-.card h2 {
-    font-size: 27px;
-    margin-bottom: 0px;
-}
 
-.card:hover {
+/* .card:hover {
     height: 580px;
     transition: 0.5s;
+} */
+
+.cardInfo h2 {
+    font-size: 27px;
+    margin-bottom: 0px;
+    color: black;
+    margin-top: 10px;
+    font-weight: bold;
 }
 
-.card img {
-    width: 250px;
-    height: 200px;
-    object-fit: cover;
+.cardInfo ul {
+    margin: 15px 0;
+    padding: 0;
 }
 
-.cardLink {
+.cardInfo a {
     width: 100%;
     height: auto;
     text-align: center;
+    font-size: 18px;
     border: none;
     border-radius: 5px;
-    background-color: #4ED9B2;
-    color: white;
+    background-color: var(--orange);
+    color: black;
     padding: 8px 8px;
     text-decoration: none;
+}
+
+.cardInfo a:hover {
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+    cursor: pointer;
 }
 
 .cardId {
@@ -107,7 +138,9 @@ li {
     position: fixed;
     left: 0px;
     padding: 35px;
-    background-color: var(--smokey_white);
+    /* background-color: var(--smokey_white);
+    background: rgba(255, 255, 255, 0.4); */
+    border-right: 3px solid white;
 }
 
 #sidebarContainer h1 {
@@ -205,4 +238,31 @@ li {
 .rangeSlider .right {
     position: relative;
     float: right;
+}
+
+/* Media Queries */
+@media (max-width: 1500px) {
+
+}
+
+@media (max-width: 1300px) {
+    .cardInfo h2 {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 1100px) { 
+
+}
+
+@media (max-width: 900px) { 
+
+}
+
+@media (max-width: 700px) { 
+
+}
+
+@media (max-width: 500px) { 
+
 }
