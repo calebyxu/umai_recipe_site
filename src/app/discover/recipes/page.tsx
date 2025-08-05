@@ -9,7 +9,7 @@ import { useContext } from 'react';
 import { RecipeContext } from '../DiscoverContext';
 import '../../../css/recipe.css';
 
-export default function recipe() {
+export default function Recipe() {
     /* use context */
     const recipes = useContext(RecipeContext);
 
@@ -44,7 +44,7 @@ export default function recipe() {
                     <iframe src={recipe.video} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                     <h2>Instructions</h2>
                     <ul id='ingredientsWrapper'>
-                        {instructions.map(row => <li>{row}</li>)}
+                        {instructions.map((row, index) => <li key={index}>{row}</li>)}
                     </ul>
                 </div>
             </div>
