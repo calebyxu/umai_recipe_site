@@ -1,6 +1,6 @@
 'use client'
 
-import { useContext, useState, useEffect, createContext } from 'react';
+import { useContext, useState, useEffect, createContext, Suspense } from 'react';
 import { RecipeContext } from './DiscoverContext';
 
 interface RecipeInterface {
@@ -35,8 +35,11 @@ export default function DiscoverLayout({ children }: { children: React.ReactNode
     }, []);
 
     return (
-        <RecipeContext value={recipes}>
-            {children}
-        </RecipeContext>
+        <Suspense fallback={<p>loading...</p>}>
+            <RecipeContext value={recipes}>
+                {children}
+            </RecipeContext>
+        </Suspense>
+
     )
 }

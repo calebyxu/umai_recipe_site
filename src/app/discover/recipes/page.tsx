@@ -4,7 +4,7 @@
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 /* React */
-import { useContext, Suspense } from 'react';
+import { useContext } from 'react';
 /* General */
 import { RecipeContext } from '../DiscoverContext';
 import '../../../css/recipe.css';
@@ -19,9 +19,7 @@ export default function Recipe() {
 
     if (recipes.data[id] == null) {
         return (
-            <Suspense fallback={<p>loading...</p>}>
-                <p>loading...</p>
-            </Suspense>
+            <p>loading...</p>
         )
     } else {
         const imgRoute = '/img/recipes/' + recipes.data[id].img;
@@ -31,25 +29,23 @@ export default function Recipe() {
         const ingredients = recipe.ingredients.split('. ');
 
         return (
-            <Suspense fallback={<p>loading...</p>}>
-                <div id='container'>
-                    <div id='containerLeft'>
-                        <div id='containerRightImg'><Image src={imgRoute} alt='image' fill={true} objectFit='cover'></Image></div>
-                        <h2>Ingredients</h2>
-                        <ul id='ingredientsWrapper'>
-                            {ingredients.map((row, index) => <li key={index}>{row}</li>)}
-                        </ul>
-                    </div>
-                    <div id='containerRight'>
-                        <h1>{recipe.title}</h1>
-                        <iframe src={recipe.video} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                        <h2>Instructions</h2>
-                        <ul id='ingredientsWrapper'>
-                            {instructions.map((row, index) => <li key={index}>{row}</li>)}
-                        </ul>
-                    </div>
+            <div id='container'>
+                <div id='containerLeft'>
+                    <div id='containerRightImg'><Image src={imgRoute} alt='image' fill={true} objectFit='cover'></Image></div>
+                    <h2>Ingredients</h2>
+                    <ul id='ingredientsWrapper'>
+                        {ingredients.map((row, index) => <li key={index}>{row}</li>)}
+                    </ul>
                 </div>
-            </Suspense>
+                <div id='containerRight'>
+                    <h1>{recipe.title}</h1>
+                    <iframe src={recipe.video} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+                    <h2>Instructions</h2>
+                    <ul id='ingredientsWrapper'>
+                        {instructions.map((row, index) => <li key={index}>{row}</li>)}
+                    </ul>
+                </div>
+            </div>
         )
     }
 }
