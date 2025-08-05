@@ -52,21 +52,4 @@ export default function Recipe() {
             </Suspense>
         )
     }
-
-    // return (
-    //     <>
-    //         {recipes.data[id] == null ? (
-    //             <p>loading...</p>
-    //         ) : (
-    //             <div id='container'>
-    //                 <div id='containerLeft'>
-    //                     <h1>hello</h1>
-    //                 </div> 
-    //                 <div id='containerRight'>
-    //                     <Image src={imgRoute}></Image>
-    //                 </div>
-    //             </div>
-    //         )}
-    //     </>
-    // )
 }
