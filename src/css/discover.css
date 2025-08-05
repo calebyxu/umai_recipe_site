@@ -1,0 +1,269 @@
+/* Colors */
+:root {
+    --darkCyan_blue: #2CA4AB;
+    --smokey_white: #F1F1F1;
+    --orange: #FF7D29;
+}
+
+/* General */
+body {
+    color: black;
+}
+
+p {
+    margin-top: 20px;
+    padding: 0px;
+}
+
+ul {
+    padding-left: 20px;
+    margin: 25px 0px;
+}
+
+li {
+    margin-bottom: 7px;
+}
+
+#discoverContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 100px 60px 50px 300px;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    color: white;
+}
+
+#contentWrapper {
+    margin-top: 50px;
+}
+
+/* Recipe Cards */
+#cardContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 250px;
+    height: 415px;
+    margin: 40px;
+    padding: 10px;
+    background-color: #F1F1F1;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.cardImg {
+    width: 220px;
+    height: 200px;
+    position: relative;
+    margin: 0 auto;
+    border-radius: 10px 0 0 10px;
+}
+
+.cardInfo {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 10px;
+}
+
+
+/* .card:hover {
+    height: 580px;
+    transition: 0.5s;
+} */
+
+.cardInfo h2 {
+    font-size: 27px;
+    margin-bottom: 0px;
+    color: black;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.cardInfo ul {
+    margin: 15px 0;
+    padding: 0;
+}
+
+.cardInfo a {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--orange);
+    color: black;
+    padding: 8px 8px;
+    text-decoration: none;
+}
+
+.cardInfo a:hover {
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.cardId {
+    width: 0px;
+    height: 0px;
+    border: none;
+    visibility: hidden;
+    position: absolute;
+}
+
+.minimize {
+    display: none;
+}
+
+/* Sidebar */
+#sidebarContainer {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    height: 860px;
+    position: fixed;
+    left: 0px;
+    padding: 35px;
+    /* background-color: var(--smokey_white);
+    background: rgba(255, 255, 255, 0.4); */
+    border-right: 3px solid white;
+    color: white;
+}
+
+#sidebarContainer h1 {
+    margin: 20px 0px 0px 0px;
+    font-size: 35px;
+    border-bottom: solid 2px white;
+}
+
+#sidebarContainer h2 {
+    margin: 0px 0px 20px 0px;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+.filterContainer {
+    margin-top: 50px;
+}
+
+.filters {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.filters input {
+    margin-right: 13px;
+}
+
+/* Sidebar Slider */
+.slider {
+    width: 210px;
+    height: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    outline: none;
+}
+
+.slider,
+.slider::-webkit-slider-runnable-track,
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: none;
+}
+
+.slider::-webkit-slider-runnable-track {
+    width: 200px;
+    height: 1px;
+    background: #003D7C;
+}
+
+.slider:nth-child(2)::-webkit-slider-runnable-track {
+    background: none;
+}
+
+.slider::-webkit-slider-thumb {
+    position: relative;
+    height: 15px;
+    width: 15px;
+    margin-top: -7px;
+    background: #fff;
+    border: 1px solid #003D7C;
+    border-radius: 25px;
+    z-index: 1;
+}
+
+
+.slider:nth-child(1)::-webkit-slider-thumb {
+    z-index: 2;
+}
+
+.rangeSlider {
+    position: relative;
+    height: 60px;
+    width: 210px;
+    display: inline-block;
+    margin-top: -5px;
+}
+
+.rangeSlider input {
+    position: absolute;
+}
+
+.rangeSlider {
+    position: absolute;
+}
+
+.rangeSlider span {
+    position: absolute;
+    margin: 35px 20px;
+    width: 50px;
+    text-align: center;
+}
+
+.rangeSlider .right {
+    position: relative;
+    float: right;
+}
+
+/* Media Queries */
+@media (max-width: 1500px) {
+
+}
+
+@media (max-width: 1300px) {
+    .cardInfo h2 {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 1100px) { 
+
+}
+
+@media (max-width: 900px) { 
+
+}
+
+@media (max-width: 700px) { 
+
+}
+
+@media (max-width: 500px) { 
+
+}

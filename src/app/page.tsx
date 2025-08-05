@@ -7,12 +7,9 @@ import { ClientContext } from './ClientWrapperContext';
 /* General */
 import Image from 'next/image';
 import Link from 'next/link';
-import './home.css';
+import '../css/home.css';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-
-//context allows for data distribution amongst pages
-// export const UserInfo = createContext(null);
 
 //init db json model
 interface DataItem {
@@ -40,11 +37,11 @@ export default function Home() {
 
     //fetch to db conn
     useEffect(() => {
-        async function fetchHello() {
+        async function fetchDb() {
             const res = await fetch('/api/db');
             setJson(await res.json());
         }
-        fetchHello();
+        fetchDb();
     }, []);
 
     /* carousel media queries */

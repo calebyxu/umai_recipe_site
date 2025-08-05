@@ -8,6 +8,7 @@ import NavBar from '../components/NavBar';
 import { ClientContext } from './ClientWrapperContext'
 
 export default function ClientWrapper({ children }: { children: React.ReactNode }) {
+    /* google login */
     const [responsePayload, setResponsePayload] = useState('');
 
     return (
