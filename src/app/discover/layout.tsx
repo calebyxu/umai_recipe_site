@@ -20,7 +20,7 @@ interface RecipeResponse {
     data: RecipeInterface[];
 };
 
-export default function discoverLayout({ children }: { children: React.ReactNode }) {
+export default function DiscoverLayout({ children }: { children: React.ReactNode }) {
     //stores recipe data
     const initialRecipe: RecipeResponse = { data: [] };
     const [recipes, setRecipes] = useState<RecipeResponse>(initialRecipe);
