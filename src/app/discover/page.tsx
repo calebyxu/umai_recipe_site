@@ -8,56 +8,39 @@ import '../../css/discover.css';
 import DiscoverRecipe from '../../components/DiscoverRecipe';
 
 interface RecipeInterface {
-    id: number,
-    title: string,
-    img: string,
-    video: string,
-    time: number,
-    serving: number,
-    description: string,
-    ingredients: string,
-    instructions: string,
-    tags: string
-};
+    id: number;
+    title: string;
+    img: string;
+    video: string;
+    time: number;
+    serving: number;
+    description: string;
+    ingredients: string;
+    instructions: string;
+    tags: string;
+}
 
 interface RecipeResponse {
     data: RecipeInterface[];
 };
 
 export default function Page() {
-    //init context for recipes
-    const recipeContext = useContext(RecipeContext);
-    const initialRecipe: RecipeResponse = { data: [] };
-
-    //stores recipe data
-    const [recipes, setRecipes] = useState<RecipeResponse>(initialRecipe);
-
-    //fetch to db conn
-    useEffect(() => {
-        async function fetchDb() {
-            const res = await fetch('../api/db');
-            setRecipes(await res.json());
-        }
-        fetchDb();
-        console.log('hello')
-    }, []);
-
-    console.log(recipes)
+    const recipes = useContext(RecipeContext);
 
     return (
         <div id='discoverContainer'>
             <form id="sidebarContainer">
-
+                <div id='sidebarContainer'>
+                    <h1>Filters</h1>
+                </div>
             </form>
             <div id='contentWrapper'>
                 <h1 id='header'>Checkout Our Selection!</h1>
                 <div id='cardContainer'>
                     {recipes.data.length > 0 ? (
-                        <RecipeContext.Provider value={recipes}>
-                            {recipes.data && recipes.data.map((recipe) => (
-                                <DiscoverRecipe key={recipe.id} recipe={recipe}/>
-                            ))}
-                        </RecipeContext.Provider>
+                        recipes.data.map((recipe) => (
+                            <DiscoverRecipe key={recipe.id} recipe={recipe} />
+                        ))
                     ) : (
                         <p>loading recipes...</p>
                     )}

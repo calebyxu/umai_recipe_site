@@ -10,15 +10,6 @@
 }
 
 /* General */
-
-img {
-    height: 400px;
-    width: 400px;
-    object-fit: cover;
-    border-radius: 20px;
-    margin: 40px 0px;
-}
-
 h1,
 h2,
 h3 {
@@ -53,28 +44,36 @@ iframe {
 }
 
 /* Left */
-#container_left {
+#containerLeft {
     display: flex;
     flex-direction: column;
     margin-right: 200px;
 }
 
-#ingredients_wrapper {
+#ingredientsWrapper {
     padding-left: 15px;
     padding-top: 40px;
     border-top: solid black 1px;
 }
 
 /* Right */
-#container_right {
+#containerRight {
     display: flex;
     flex-direction: column;
 }
 
-#instructions_wrapper {
+#instructionsWrapper {
     border-top: solid 1px black;
     padding-top: 40px;
     padding-left: 15px;
+}
+
+#containerRightImg {
+    height: 400px;
+    width: 400px;
+    border-radius: 20px;
+    margin: 40px 0px;
+    position: relative;
 }
 
 /* Media Queries */
@@ -109,7 +108,7 @@ iframe {
         font-size: 15px;
     }
 
-    .recipe_title {
+    .recipeTitle {
         font-size: 40px;
         margin: 60px 20px 0px 20px;
     }

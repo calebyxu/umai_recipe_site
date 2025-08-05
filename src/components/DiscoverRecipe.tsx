@@ -1,14 +1,15 @@
 'use client'
 
-/* React */
+/* Next.js */
 import Image from 'next/image';
 import Link from 'next/link';
+/* React */
 
 /* General */
 import '../css/discover.css';
 
-/* init interfaces */
-interface RecipeInterface {
+/* init interface */
+interface RecipeProps {
     id: number;
     title: string;
     img: string;
@@ -19,11 +20,11 @@ interface RecipeInterface {
     ingredients: string;
     instructions: string;
     tags: string;
-};
+}
 
 interface DiscoverRecipeProps {
-    recipe: RecipeInterface;
-};
+    recipe: RecipeProps;
+}
 
 export default function DiscoverRecipe({ recipe }: DiscoverRecipeProps) {
     const imgRoute = '/img/recipes/' + recipe.img;
@@ -37,16 +38,7 @@ export default function DiscoverRecipe({ recipe }: DiscoverRecipeProps) {
                     <li>Servings: {recipe.serving}</li>
                     <li>Time: {recipe.time}</li>
                 </ul>
-                <Link href={{pathname: './recipes', query: {
-                    id: recipe.id,
-                    name: recipe.title,
-                    img: recipe.img,
-                    video: recipe.video,
-                    time: recipe.time,
-                    serving: recipe.serving,
-                    ingredients: recipe.ingredients,
-                    instructions: recipe.instructions
-                    }}}>View Recipe</Link>
+                <Link href={{pathname: './discover/recipes', query: { id: recipe.id - 1 }}}>View Recipe</Link>
             </div>
         </div>
     )

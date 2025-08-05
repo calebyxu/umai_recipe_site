@@ -141,12 +141,13 @@ li {
     /* background-color: var(--smokey_white);
     background: rgba(255, 255, 255, 0.4); */
     border-right: 3px solid white;
+    color: white;
 }
 
 #sidebarContainer h1 {
     margin: 20px 0px 0px 0px;
     font-size: 35px;
-    border-bottom: solid 2px black;
+    border-bottom: solid 2px white;
 }
 
 #sidebarContainer h2 {
