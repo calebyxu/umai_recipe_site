@@ -6,7 +6,7 @@ import Link from 'next/link';
 /* React */
 
 /* General */
-import '../css/discover.css';
+// import '../css/discover.css';
 
 /* init interface */
 interface RecipeProps {

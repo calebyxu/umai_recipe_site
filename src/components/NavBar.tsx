@@ -6,7 +6,7 @@ import Image from 'next/image'
 /* React */
 import { useState, useEffect, useContext } from 'react';
 /* General */
-import '../css/component.module.css';
+import '../css/component.css';
 import { GoogleLogin } from '@react-oauth/google';
 
 interface payloadProps {
@@ -90,7 +90,7 @@ export default function NavBar({ setResponsePayload }: payloadProps) {
         <header className="topnavBackground" id="navbar">
             <div className='topnav'>
                 <div id='googleLogin'>
-                    <a href="/"><div className='topnavImg'><Image src='./img/umaiBlackLogo.svg' fill={true} alt='image'></Image></div></a>
+                    <a href="/"><div className='topnavImg'><Image src='/img/umaiBlackLogo.svg' fill={true} alt='image'></Image></div></a>
                     <GoogleLogin size={buttonSize}
                         onSuccess={handleCredentialResponse}
                         onError={() => {

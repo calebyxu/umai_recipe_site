@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { useContext } from 'react';
 /* General */
 import { RecipeContext } from '../DiscoverContext';
-import '../../../css/recipe.modules.css';
+import '../../../css/recipe.css';
 
 export default function Recipe() {
     /* use context */
