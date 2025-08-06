@@ -110,7 +110,7 @@ export default function Home() {
                             for cooking.
                             Click below to see what you have cooking!
                         </p>
-                        <Link href="/home">Cooking Time!</Link>
+                        <Link href="/discover">Cooking Time!</Link>
                     </div>
                     <div className="gridDisplay">
                         <div className='gridImg'><Image src='/img/recipes/katsudon.jpg' fill={true} objectFit={'cover'} alt='image'></Image></div>
