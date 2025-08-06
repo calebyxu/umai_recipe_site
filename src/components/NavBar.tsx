@@ -90,7 +90,7 @@ export default function NavBar({ setResponsePayload }: payloadProps) {
         <header className="topnavBackground" id="navbar">
             <div className='topnav'>
                 <div id='googleLogin'>
-                    <Link href="/"><div className='topnavImg'><Image src='./img/umaiBlackLogo.svg' fill={true} alt='image'></Image></div></Link>
+                    <a href="/"><div className='topnavImg'><Image src='./img/umaiBlackLogo.svg' fill={true} alt='image'></Image></div></a>
                     <GoogleLogin size={buttonSize}
                         onSuccess={handleCredentialResponse}
                         onError={() => {
@@ -101,9 +101,9 @@ export default function NavBar({ setResponsePayload }: payloadProps) {
                     />
                 </div>
                 <div className='topnavLinks'>
-                    <Link href='/wip'>Add Recipe</Link>
-                    <Link href='/discover'>Discover</Link>
-                    <Link href='/wip'>Your Recipes</Link>
+                    <a href='/wip'>Add Recipe</a>
+                    <a href='/discover'>Discover</a>
+                    <a href='/wip'>Your Recipes</a>
                 </div>
             </div>
         </header>
