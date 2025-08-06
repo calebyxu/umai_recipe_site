@@ -90,7 +90,7 @@ export default function Home() {
                     <h1>Find Something New</h1>
                     <Link href="/discover">Discover Now</Link>
                 </div>
-                <Carousel responsive={responsive} showDots={true} autoPlay={true} autoPlaySpeed={1000} infinite={true}>
+                <Carousel responsive={responsive} showDots={true} autoPlay={true} autoPlaySpeed={5000} infinite={true}>
                     <div className="carouselImg"><Image src="/img/recipes/charsui.jpg" fill={true} alt='image' objectFit='cover'></Image></div>
                     <div className="carouselImg"><Image src="/img/recipes/gyudon.jpg" fill={true} alt='image' objectFit='cover'></Image></div>
                     <div className="carouselImg"><Image src="/img/recipes/japanese_chicken_curry.jpg" fill={true} alt='image' objectFit='cover'></Image></div>
