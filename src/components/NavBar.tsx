@@ -6,7 +6,7 @@ import Image from 'next/image'
 /* React */
 import { useState, useEffect, useContext } from 'react';
 /* General */
-import '../css/component.css';
+import '../css/component.module.css';
 import { GoogleLogin } from '@react-oauth/google';
 
 interface payloadProps {

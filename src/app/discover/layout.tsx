@@ -3,6 +3,9 @@
 import { useContext, useState, useEffect, createContext, Suspense } from 'react';
 import { RecipeContext } from './DiscoverContext';
 
+/* General */
+import '../../css/discover.css';
+
 interface RecipeInterface {
     id: number;
     title: string;

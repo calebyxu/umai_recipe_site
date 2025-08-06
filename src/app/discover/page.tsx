@@ -4,7 +4,6 @@
 import { useState, useEffect, useContext, createContext } from 'react';
 import { RecipeContext } from './DiscoverContext';
 /* general */
-import '../../css/discover.css';
 import DiscoverRecipe from '../../components/DiscoverRecipe';
 
 interface RecipeInterface {
