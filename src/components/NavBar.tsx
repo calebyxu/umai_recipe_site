@@ -103,7 +103,7 @@ export default function NavBar({ setResponsePayload }: payloadProps) {
                 <div className='topnavLinks'>
                     <a href='/wip'>Add Recipe</a>
                     <a href='/discover'>Discover</a>
-                    <a href='/wip'>Your Recipes</a>
+                    <a href='/userRecipes'>Your Recipes</a>
                 </div>
             </div>
         </header>

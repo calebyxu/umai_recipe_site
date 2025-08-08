@@ -11,6 +11,8 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
     /* google login */
     const [responsePayload, setResponsePayload] = useState('');
 
+    console.log(responsePayload);
+
     return (
         <ClientContext.Provider value={{ responsePayload }}>
             <NavBar setResponsePayload={setResponsePayload} />
