@@ -1,22 +1,17 @@
-import type { Action, ThunkAction } from '@reduxjs/toolkit'
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from './slices/counterSlice'
+import { persistStore, persistReducer } from 'redux-persist'
+import counterSlice from './features/counter/counterSlice'
+
+const reducer = {
+    counter: counterSlice
+}
 
 export const store = configureStore({
-    reducer: {
-        counter: counterReducer
-    }
+    reducer,
+    // window: __REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 })
 
-// Infer the type of `store`
-export type AppStore = typeof store
-export type RootState = ReturnType<AppStore['getState']>
-// Infer the `AppDispatch` type from the store itself
-export type AppDispatch = AppStore['dispatch']
-// Define a reusable type describing thunk functions
-export type AppThunk<ThunkReturnType = void> = ThunkAction<
-    ThunkReturnType,
-    RootState,
-    unknown,
-    Action
->
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<typeof store.getState>
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+export type AppDispatch = typeof store.dispatch

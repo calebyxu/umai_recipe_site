@@ -60,6 +60,10 @@ export default function NavBar({ setResponsePayload }: payloadProps) {
 
         console.log("Encoded JWT ID token: " + response.credential);
 
+        let responsePayload = decodeJWT(response.credential)
+
+        sessionStorage.setItem('name', responsePayload.name)
+
         setResponsePayload(decodeJWT(response.credential).name);
 
         // console.log("Decoded JWT ID token fields:");

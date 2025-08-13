@@ -11,6 +11,8 @@ import '../css/home.css';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
+import Counter from './features/counter/Counter';
+
 //init db json model
 interface DataItem {
     id: number;
@@ -65,6 +67,8 @@ export default function Home() {
         }
     };
 
+    const name = sessionStorage.getItem("name");
+
     return (
         <>
             {/* <h1>hello this is the home page</h1>
@@ -82,7 +86,8 @@ export default function Home() {
                         <Image src='/img/picnicUserLanding.jpg' fill={true} objectFit={"cover"} alt='image'></Image>
                         <div id="heroTextWrapper">
                             <h1 id="heroText">Welcome</h1>
-                            <h1>{useResponseContext.responsePayload}</h1>
+                            {/* <h1>{useResponseContext.responsePayload}</h1> */}
+                            <h1>{name}</h1>
                         </div>
                     </div>
                 </div>
@@ -117,6 +122,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+            <Counter />
             <footer></footer>
         </>
     );
