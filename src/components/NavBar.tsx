@@ -10,7 +10,8 @@ import '../css/component.css';
 import { GoogleLogin } from '@react-oauth/google';
 
 interface payloadProps {
-    setResponsePayload: React.Dispatch<React.SetStateAction<string>>
+    setResponsePayload: React.Dispatch<React.SetStateAction<string>>,
+    setUsername: React.Dispatch<React.SetStateAction<string[]>>
 };
 
 interface credentialResponse {
@@ -19,7 +20,7 @@ interface credentialResponse {
     clientId?: string;
 };
 
-export default function NavBar({ setResponsePayload }: payloadProps) {
+export default function NavBar({ setResponsePayload, setUsername }: payloadProps) {
 
     const [buttonSize, setButtonSize] = useState<'small' | 'medium' | 'large'>('large');
 
@@ -62,9 +63,10 @@ export default function NavBar({ setResponsePayload }: payloadProps) {
 
         let responsePayload = decodeJWT(response.credential)
 
-        sessionStorage.setItem('name', responsePayload.name)
+        // sessionStorage.setItem('name', responsePayload.name)
 
         setResponsePayload(decodeJWT(response.credential).name);
+        setUsername(decodeJWT(response.credential).name);
 
         // console.log("Decoded JWT ID token fields:");
         // console.log("  Full Name: " + responsePayload.name);

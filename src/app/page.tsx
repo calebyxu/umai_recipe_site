@@ -4,14 +4,14 @@
 /* React */
 import { useState, useEffect, useContext } from 'react';
 import { ClientContext } from './ClientWrapperContext';
+/* Session Storage State */
+import useSessionStorageState from 'use-session-storage-state';
 /* General */
 import Image from 'next/image';
 import Link from 'next/link';
 import '../css/home.css';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-
-import Counter from './features/counter/Counter';
 
 //init db json model
 interface DataItem {
@@ -30,6 +30,13 @@ interface payloadProps {
 };
 
 export default function Home() {
+    /* init session vars */
+    // useEffect(() => {
+    //     if (typeof window !== "undefined") {
+    //         sessionStorage.setItem('name', '');
+    //         sessionStorage.setItem('email', '');
+    //     }
+    // })
 
     const initialJson: JsonResponse = { data: [] };
 
@@ -66,9 +73,7 @@ export default function Home() {
             items: 1
         }
     };
-
-    const name = sessionStorage.getItem("name");
-
+        
     return (
         <>
             {/* <h1>hello this is the home page</h1>
@@ -86,8 +91,7 @@ export default function Home() {
                         <Image src='/img/picnicUserLanding.jpg' fill={true} objectFit={"cover"} alt='image'></Image>
                         <div id="heroTextWrapper">
                             <h1 id="heroText">Welcome</h1>
-                            {/* <h1>{useResponseContext.responsePayload}</h1> */}
-                            <h1>{name}</h1>
+                            <h1>{useResponseContext.username}</h1>
                         </div>
                     </div>
                 </div>
@@ -122,7 +126,6 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <Counter />
             <footer></footer>
         </>
     );

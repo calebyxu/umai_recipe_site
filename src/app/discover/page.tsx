@@ -26,8 +26,6 @@ interface RecipeResponse {
 export default function Page() {
     const recipes = useContext(RecipeContext);
 
-    console.log(sessionStorage.getItem("item"));
-
     return (
         <div id='discoverContainer'>
             <form id="sidebarContainer">
