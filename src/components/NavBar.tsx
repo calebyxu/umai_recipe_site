@@ -10,7 +10,7 @@ import '../css/component.css';
 import { GoogleLogin } from '@react-oauth/google';
 
 interface payloadProps {
-    setResponsePayload: React.Dispatch<React.SetStateAction<string>>,
+    // setResponsePayload: React.Dispatch<React.SetStateAction<string>>,
     setUsername: React.Dispatch<React.SetStateAction<string[]>>
 };
 
@@ -20,7 +20,7 @@ interface credentialResponse {
     clientId?: string;
 };
 
-export default function NavBar({ setResponsePayload, setUsername }: payloadProps) {
+export default function NavBar({ /* setResponsePayload, */ setUsername }: payloadProps) {
 
     const [buttonSize, setButtonSize] = useState<'small' | 'medium' | 'large'>('large');
 
@@ -38,6 +38,12 @@ export default function NavBar({ setResponsePayload, setUsername }: payloadProps
         handleResize();
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    useEffect(() => {
+        async function postUser() {
+            const res = await fetch('/api/users');
+        }
     }, []);
 
     function decodeJWT(token: string) {
@@ -61,12 +67,11 @@ export default function NavBar({ setResponsePayload, setUsername }: payloadProps
 
         console.log("Encoded JWT ID token: " + response.credential);
 
-        let responsePayload = decodeJWT(response.credential)
-
+        /* not using sessionStorage since it loads after react rendering page */
         // sessionStorage.setItem('name', responsePayload.name)
 
-        setResponsePayload(decodeJWT(response.credential).name);
-        setUsername(decodeJWT(response.credential).name);
+        /* Lifting state and saving data with useState doesn't work well since data is refreshed on DOM unmounts */
+        // setResponsePayload(decodeJWT(response.credential).name);
 
         // console.log("Decoded JWT ID token fields:");
         // console.log("  Full Name: " + responsePayload.name);
@@ -90,6 +95,18 @@ export default function NavBar({ setResponsePayload, setUsername }: payloadProps
         // } catch (e) {
         //     console.error(e);
         // }
+
+        /* save username to useSessionStorage */
+        const responsePayload = decodeJWT(response.credential);
+
+        setUsername(responsePayload.name)
+        const res = await fetch('../api/users', {
+            method: 'post',
+            headers: {
+                "Context-Type": "application/json"
+            },
+            body: JSON.stringify(responsePayload)
+        });
     }
 
     return (

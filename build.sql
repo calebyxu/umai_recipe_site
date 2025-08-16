@@ -1,5 +1,6 @@
 /* Drop if exists */
 DROP TABLE IF EXISTS recipes;
+DROP TABLE IF EXISTS users;
 
 /* Create tables */
 CREATE TABLE recipes (
@@ -13,8 +14,22 @@ CREATE TABLE recipes (
     ingredients TEXT,
     instructions TEXT,
     tags VARCHAR(20)
-); 
+);
 
+CREATE TABLE users (
+    id INT PRIMARY KEY,
+    username VARCHAR(80),
+    email VARCHAR(80)
+);
+
+CREATE TABLE userRecipes (
+    userId INT,
+    recipeId int,
+    FOREIGN KEY (userId) REFERENCES users(id),
+    FOREIGN KEY (recipeId) REFERENCES recipes(id)
+);
+
+/* Inserts */
 INSERT INTO recipes ("id", "title", "img", "video", "time", "serving", "description", "ingredients", "instructions", "tags") VALUES
 (1, 'Char Sui', './img/recipes/charsui.jpg', 'https://www.youtube.com/embed/MPZ5fw35bc4', 30, 4, 'The perfect roast for a family gathering', '2 lb Pork Shoulder. 2 Cubes Red Bean Curd. 1 Tbsp Red Bean Curd Juice. 2 Tbsp Hoisin. 2 Tbsp Soy Sauce. 2 Tbsp Chinese Cooking Wine (optional). 1 Tbsp sesame Oil. 2 Tbsp Honey. 1 Tbsp Five Spice Powder. 1/4 tsp White Pepper. 2 Cloves of Garlic. 2 Tbsp Honey. 2-3 tsp Red Bean Curd Juice', 'In a bowl, combine your marinade ingredients. Mince or grate your garlic in the bowl and mix. If you don''t have cloves of garlic, minced garlic from a jar works also. In a large bowl or container, pour marinade onto the pork shoulder. Make sure to cover every part of the pork including the bottom. Put the bowl or container in the fridge and let it marinate for a day, for better results marinate for 2 days. Onto a grilling rack, place the marinated pork. Create a honey glaze by combining 2 Tbsp of Honey and 2-3 tsps of red bean curd juice. With the oven heated at 375 degrees. Put the pork in for 15 minutes. After you take out the pork, glaze it with an oil brush (make sure to also glaze the bottom). Every 5 to 7 minutes, reglaze the pork. Do this 2 to 3 times. Once pork is cooked through, let it rest before serving or storing it in the fridge for later', 'chinese'),
 (2, 'Mapo Tofu', './img/recipes/mapo_tofu.jpg', 'https://www.youtube.com/embed/yRCs5sIJ2NU', 30, 2, 'Tastes like home', '1 lb Ground Pork (turkey, chicken, or beef). 400 Grams Tofu (softer the better). Green Onions. 1 Tbsp of Ginger. 3 Cloves of Garlic, 1 Tbsp Doubanjiang. 1 Tbsp Mirin. 1 Tbsp Oyster Sauce. 1 Tbsp Soy Sauce. 1 Cup Water. 1 Tbsp of Potato Starch (corn starch works too). Vegetable oil. 2 Cups of Chicken Stock', 'In a bowl, combine the doubanjiang, mirin, oyster sauce and soy sauce. Mince the garlic cloves, ginger and chop up the green onions and set aside. Cut the tofu into 1 in cubes. Make sure ground pork is soft by either defrosting it or putting it in the fridge overnight. Grab a wok and bring the temperature to medium heat (you can also use a large pot but make sure to bring the temperature to high heat first). Add some vegetable oil, wait for a min and then add your condiments, stir so the ingredients don’t stick. Once the aroma starts to release from the condiments, add in your ground meat and sauce. Combine well and make sure to break apart the larger pieces of your meat. Once the meat is cooked, add your chicken stock and reduce heat. While your ingredients are being brought to a boil, combine and stir your potato starch and water. After the chicken stock is boiling, add your tofu and potato starch slurry. Make sure to combine the ingredients, but not too harshly so that you don''t break up the tofu', 'chinese'),
@@ -27,9 +42,21 @@ INSERT INTO recipes ("id", "title", "img", "video", "time", "serving", "descript
 (7, 'Gyudon', './img/recipesgyudon.jpg', 'https://www.youtube.com/embed/LdeXSCcnJFY', 30, 2, '', '1/2 lb Thinly Sliced Beef.15 Grams Ginger.1 Medium Onion. 20 Grams Sugar.90 ml Sake.30 ml Soy Sauce.Vegetable Oil.Salt.750 ml Water.1 Piece of Dried Kelp (Kombu)', 'Slice beef into half or bite sized pieces.Slice an onion and break apart the pieces. Do it against the grain so that it cooks faster.Slice your ginger as thin as possible. To make kombu dashi, fill a pot with 750 ml of water and place your dried kelp in it. For better results, let the dried kelp soak in the water for an hour or even overnight.Warm the pot at low heat until it starts to boil. Then take it off the heat.Heat a pot up to medium heat and put some vegetable oil.Then add ginger and cook until it is soft and aromatic.Add your onion and a pinch of salt. Cook it until the onions become translucent.Add the kombu dashi, sugar, and let it boil.Add the beef and sake.Once the mixture is boiling again, remove half of the scum.At the end, add your soy sauce and let it simmer for 10-15 minutes', 'japanese'),
 (10, 'Tempura Udon', './img/recipestempura_udon.jpg', 'https://www.youtube.com/embed/iigDXgdKkuI', 30, 2, '', '1 Carrot.1 Eggplant.2 Pieces Shrimp.900 ml Water.10g Dried Kelp (Kombu).20 Grams Dried Sardines.20 Grams Thick Bonito Flakes.5 Grams Thin Bonito Flakes.110 Grams Tempura Flour.1 Egg.Water.300 Grams Flour.140 ml Water.15 Grams Salt.1 tsp of Soy Sauce.Salt', 'For your noodles, sift your flour and add some water with salt dissolved in it.Knead the flour to make dough and then put it in a bag to step on it.Once the dough is flat, fold and repeat the process a few more times. Then let it rest. Shred your carrot into slices.With your eggplant, you can either just chop it into large circles or you can fan it.Take your shrimp, cut off the tip of the tail and squeeze the liquid out.Then cut the muscle strips with a knife and press so that it doesn''t curl when frying.Once the dough has rested for an hour, spread some flour on a surface and flatten your dough with a rolling pin till it becomes a large flat sheet. Make sure the dough also has flour on it.Once flat, fold your dough and chop it to make noodles. You can also use a pasta machine.In a pot, add 20 grams of dry sardines, a piece of dried kelp, water and bring it to a boil.Right before it boils, remove your sardines and dried kelp, and replace it with thick bonito flakes. Let it boil for a few minutes.Turn the burner off and add thin bonito flakes. Wait for 5 minutes until they all sink.Filter the soup through a paper towel.Once filtered, add 1 tsp of Soy Sauce and a pinch of salt.Add water to a bowl of tempura flour and coat your toppings in it.Deep fry them in vegetable oil at 350 F, or 180 C.Lastly boil your noodles in water for 10 minutes', 'japanese');
 
+INSERT INTO users ("id", "username", "email") VALUES
+(1, 'Caleb', 'caleb.y.xu@gmail.com'),
+(2, 'John', 'john445@gmail.com');
+
+INSERT INTO userRecipes ("userId", "recipeId") VALUES
+(1, 1);
+
+/* General */
 ALTER TABLE recipes
 ALTER COLUMN video
 TYPE VARCHAR(80);
+
+ALTER TABLE users
+ALTER COLUMN id
+TYPE SERIAL;
 
 UPDATE recipes
 SET img = (

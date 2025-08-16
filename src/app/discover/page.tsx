@@ -25,7 +25,7 @@ interface RecipeResponse {
 
 export default function Page() {
     const recipes = useContext(RecipeContext);
-
+    
     return (
         <div id='discoverContainer'>
             <form id="sidebarContainer">

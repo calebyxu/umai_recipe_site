@@ -30,6 +30,7 @@ interface payloadProps {
 };
 
 export default function Home() {
+    /*  */
     /* init session vars */
     // useEffect(() => {
     //     if (typeof window !== "undefined") {

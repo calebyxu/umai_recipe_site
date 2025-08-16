@@ -30,6 +30,7 @@ export default function Recipe() {
 
         return (
             <div id='container'>
+                <button>hello</button>
                 <div id='containerLeft'>
                     <div id='containerRightImg'><Image src={imgRoute} alt='image' fill={true} objectFit='cover'></Image></div>
                     <h2>Ingredients</h2>

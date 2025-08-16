@@ -15,7 +15,6 @@ import { ClientContext } from './ClientWrapperContext'
 export default function ClientWrapper({ children }: { children: React.ReactNode }) {
     /* google login */
     const [responsePayload, setResponsePayload] = useState('');
-
     const [username, setUsername] = useSessionStorageState('name', {
         defaultValue: ['']
     })
