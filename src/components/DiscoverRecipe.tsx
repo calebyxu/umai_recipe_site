@@ -4,11 +4,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 /* React */
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { FaRegBookmark } from "react-icons/fa";
 import { ClientContext } from '../app/ClientWrapperContext';
 
 /* General */
+import ToggleBookMark from './ToggleBookMark';
+import { GET } from '@/app/api/db/route';
 // import '../css/discover.css';
 
 /* init interface */
@@ -32,8 +34,19 @@ interface DiscoverRecipeProps {
 export default function DiscoverRecipe({ recipe }: DiscoverRecipeProps) {
     const useResponseContext = useContext(ClientContext);
 
+    /* fetch data from db using username */
+    useEffect (() => {
+        async function getUserRecipes() {
+            const res = await fetch('/api/db', {
+                method: 'post',
+
+            });
+        }
+        getUserRecipes();
+    }, []);
+
     function change() {
-        console.log('hello')
+        console.log('hello');
     }
 
     const imgRoute = '/img/recipes/' + recipe.img;

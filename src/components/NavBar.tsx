@@ -40,12 +40,6 @@ export default function NavBar({ /* setResponsePayload, */ setUsername }: payloa
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    useEffect(() => {
-        async function postUser() {
-            const res = await fetch('/api/users');
-        }
-    }, []);
-
     function decodeJWT(token: string) {
         const base64Url = token.split(".")[1];
         const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
