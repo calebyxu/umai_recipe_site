@@ -9,3 +9,16 @@ export async function GET() {
 
     return NextResponse.json({ data });
 }
+
+export async function POST(request: Request) {
+    const body = await request.json();
+    const sql = neon(process.env.DATABASE_URL!)
+    const data = await sql`
+    SELECT userrecipes.recipeid FROM userrecipes
+    JOIN users ON userrecipes.userid = users.id
+    WHERE users.username = ${body};`;
+
+    console.log(data);
+
+    return NextResponse.json(data);
+}

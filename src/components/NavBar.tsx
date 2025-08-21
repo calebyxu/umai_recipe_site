@@ -10,7 +10,7 @@ import '../css/component.css';
 import { GoogleLogin } from '@react-oauth/google';
 
 interface payloadProps {
-    // setResponsePayload: React.Dispatch<React.SetStateAction<string>>,
+    setUserRecipes: React.Dispatch<React.SetStateAction<string[]>>
     setUsername: React.Dispatch<React.SetStateAction<string[]>>
 };
 
@@ -20,7 +20,7 @@ interface credentialResponse {
     clientId?: string;
 };
 
-export default function NavBar({ /* setResponsePayload, */ setUsername }: payloadProps) {
+export default function NavBar({ setUsername, setUserRecipes }: payloadProps) {
 
     const [buttonSize, setButtonSize] = useState<'small' | 'medium' | 'large'>('large');
 
@@ -94,7 +94,18 @@ export default function NavBar({ /* setResponsePayload, */ setUsername }: payloa
         const responsePayload = decodeJWT(response.credential);
 
         setUsername(responsePayload.name)
-        const res = await fetch('../api/users', {
+
+        const recipes = await fetch('../api/userRecipes', {
+            method: 'post',
+            headers: {
+                "Context-Type": "application/json"
+            },
+            body: JSON.stringify(responsePayload.name)
+        });
+
+        setUserRecipes([JSON.stringify(await recipes.json())])
+
+        await fetch('../api/users', {
             method: 'post',
             headers: {
                 "Context-Type": "application/json"

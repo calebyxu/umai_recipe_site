@@ -68,3 +68,7 @@ WHERE id = 1;
 UPDATE recipes
 SET img = 'mapo_tofu.jpg'
 WHERE id = 2;
+
+SELECT userrecipes FROM userrecipes
+JOIN users ON userrecipes.userid = users.id
+WHERE users.username = 'DisDude2020 Xu';

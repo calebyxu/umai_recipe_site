@@ -5,6 +5,8 @@ import { useState, useEffect, useContext, createContext } from 'react';
 import { RecipeContext } from './DiscoverContext';
 /* general */
 import DiscoverRecipe from '../../components/DiscoverRecipe';
+import { ClientContext } from '../ClientWrapperContext';
+import { GiConsoleController } from 'react-icons/gi';
 
 interface RecipeInterface {
     id: number;
@@ -24,8 +26,36 @@ interface RecipeResponse {
 };
 
 export default function Page() {
+    /* init useState flag */
+    const [recipeChanges, setRecipeChanges] = useState<number[]>([]);
+
     const recipes = useContext(RecipeContext);
-    
+    const useResponseContext = useContext(ClientContext);
+
+    const username = useResponseContext.username;
+    const userRecipes = useResponseContext.userRecipes[0];
+
+    // if (userRecipes != '') {
+    //     userRecipes = JSON.parse(userRecipes);
+    //     for (let id of userRecipes) {
+    //         userRecipeArray.push(id.recipeid)
+    //     }
+    // }
+
+    /* fetch data from db using username */
+    // useEffect(() => {
+    //     async function getUserRecipes() {
+    //         const res = await fetch('../api/userRecipes', {
+    //             method: 'post',
+    //             headers: {
+    //                 "Context-Type": "application/json"
+    //             },
+    //             body: JSON.stringify('caleb')
+    //         });
+    //     }
+    //     getUserRecipes();
+    // }, []);
+
     return (
         <div id='discoverContainer'>
             <form id="sidebarContainer">
@@ -38,7 +68,7 @@ export default function Page() {
                 <div id='cardContainer'>
                     {recipes.data.length > 0 ? (
                         recipes.data.map((recipe) => (
-                            <DiscoverRecipe key={recipe.id} recipe={recipe} />
+                            <DiscoverRecipe key={recipe.id} recipe={recipe} username={username} userRecipes={userRecipes} recipeChanges={recipeChanges} setRecipeChanges={setRecipeChanges} />
                         ))
                     ) : (
                         <p>loading recipes...</p>

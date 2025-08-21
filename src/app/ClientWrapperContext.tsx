@@ -3,11 +3,11 @@
 import { createContext, useContext } from 'react';
 
 interface ClientContextType {
-    responsePayload : string,
-    username: string[]
+    username: string[],
+    userRecipes: string[]
 }
 
-export const ClientContext = createContext<ClientContextType>({ responsePayload: '',  username: [] });
+export const ClientContext = createContext<ClientContextType>({ username: [], userRecipes: [] });
 
 export const useClientContext = () => {
     const userContext = useContext(ClientContext);

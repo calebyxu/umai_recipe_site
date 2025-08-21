@@ -14,16 +14,18 @@ import { ClientContext } from './ClientWrapperContext'
 
 export default function ClientWrapper({ children }: { children: React.ReactNode }) {
     /* google login */
-    const [responsePayload, setResponsePayload] = useState('');
+    // const [responsePayload, setResponsePayload] = useState('');
     const [username, setUsername] = useSessionStorageState('name', {
         defaultValue: ['']
     })
 
-    console.log(responsePayload);
+    const [ userRecipes, setUserRecipes ] = useSessionStorageState('userRecipes', {
+        defaultValue: ['']
+    })
 
     return (
-        <ClientContext.Provider value={{ responsePayload, username }}>
-            <NavBar setResponsePayload={setResponsePayload} setUsername={setUsername} />
+        <ClientContext.Provider value={{ username, userRecipes }}>
+            <NavBar setUsername={setUsername} setUserRecipes={setUserRecipes}/>
             {children}
         </ClientContext.Provider>
     )

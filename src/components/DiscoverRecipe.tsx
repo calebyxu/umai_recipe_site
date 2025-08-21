@@ -4,7 +4,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 /* React */
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { FaRegBookmark } from "react-icons/fa";
 import { ClientContext } from '../app/ClientWrapperContext';
 
@@ -28,25 +28,39 @@ interface RecipeProps {
 }
 
 interface DiscoverRecipeProps {
-    recipe: RecipeProps;
+    recipe: RecipeProps,
+    username: string[],
+    userRecipes: string,
+    recipeChanges: number[],
+    setRecipeChanges: React.Dispatch<React.SetStateAction<number[]>>
 }
 
-export default function DiscoverRecipe({ recipe }: DiscoverRecipeProps) {
-    const useResponseContext = useContext(ClientContext);
+export default function DiscoverRecipe({ recipe, username, userRecipes, recipeChanges, setRecipeChanges }: DiscoverRecipeProps) {
+    const [src, setSrc] = useState('/img/bookmarkWhite.png');
 
-    /* fetch data from db using username */
-    useEffect (() => {
-        async function getUserRecipes() {
-            const res = await fetch('/api/db', {
-                method: 'post',
+    const parsedUserRecipes = JSON.parse(userRecipes);
 
-            });
+    useEffect(() => {
+        const found = parsedUserRecipes.find((id: { recipeid: number }) => id.recipeid === recipe.id);
+        if (found) {
+            setSrc('/img/bookmarkBlack.png');
         }
-        getUserRecipes();
-    }, []);
+    }, [recipe.id, userRecipes]);
 
     function change() {
-        console.log('hello');
+        if (src == '/img/bookmarkWhite.png') {
+            setSrc('/img/bookmarkBlack.png');
+            let change = recipeChanges;
+            change.push(recipe.id);
+            setRecipeChanges(change);
+            console.log(recipeChanges)
+        } else {
+            setSrc('/img/bookmarkWhite.png');
+            let change = recipeChanges;
+            change.splice(change.findIndex((i) => i == recipe.id));
+            setRecipeChanges(change);
+            console.log(recipeChanges)
+        }
     }
 
     const imgRoute = '/img/recipes/' + recipe.img;
@@ -58,12 +72,12 @@ export default function DiscoverRecipe({ recipe }: DiscoverRecipeProps) {
                 <div className='cardInfo'>
                     <div className='cardTitle'>
                         <h2>{recipe.title}</h2>
-                        {useResponseContext.username[0] != '' ? (
-                            <img src='/img/bookmarkWhite.png' onClick={change}></img>
+                        {username[0] != '' ? (
+                            <img src={src} onClick={change}></img>
                         ) : (
                             <div></div>
                         )}
-                        
+
                     </div>
                     <ul>
                         <li>Servings: {recipe.serving}</li>
