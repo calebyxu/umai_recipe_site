@@ -118,7 +118,7 @@ export default function NavBar({ setUsername, setUserRecipes }: payloadProps) {
         <header className="topnavBackground" id="navbar">
             <div className='topnav'>
                 <div id='googleLogin'>
-                    <a href="/"><div className='topnavImg'><Image src='/img/umaiBlackLogo.svg' fill={true} alt='image'></Image></div></a>
+                    <Link href="/"><div className='topnavImg'><Image src='/img/umaiBlackLogo.svg' fill={true} alt='image'></Image></div></Link>
                     <GoogleLogin size={buttonSize}
                         onSuccess={handleCredentialResponse}
                         onError={() => {
