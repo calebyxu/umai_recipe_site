@@ -39,9 +39,8 @@ export default function Page() {
 
     if (userRecipes != '') {
         parsedRecipes = JSON.parse(userRecipes);
-        for (let id of parsedRecipes) {
+        for (const id of parsedRecipes) {
             if (!recipeChanges.includes(id.recipeid)) {
-                console.log('hello')
                 recipeChanges.push(id.recipeid)
             }
         }

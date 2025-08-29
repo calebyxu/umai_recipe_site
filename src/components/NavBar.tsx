@@ -129,9 +129,9 @@ export default function NavBar({ setUsername, setUserRecipes }: payloadProps) {
                     />
                 </div>
                 <div className='topnavLinks'>
-                    <a href='/wip'>Add Recipe</a>
-                    <a href='/discover'>Discover</a>
-                    <a href='/userRecipes'>Your Recipes</a>
+                    <Link href='/wip'>Add Recipe</Link>
+                    <Link href='/discover'>Discover</Link>
+                    <Link href='/userRecipes'>Your Recipes</Link>
                 </div>
             </div>
         </header>

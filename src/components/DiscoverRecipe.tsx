@@ -44,15 +44,17 @@ export default function DiscoverRecipe({ recipe, username, recipeChanges, setRec
         }
     })
 
-    function change() {
+    function saving() {
+        let change = []
+
         if (src == '/img/bookmarkWhite.png') {
             setSrc('/img/bookmarkBlack.png');
-            let change = recipeChanges;
+            change = recipeChanges;
             change.push(recipe.id);
             setRecipeChanges(change);
         } else {
             setSrc('/img/bookmarkWhite.png');
-            let change = recipeChanges;
+            change = recipeChanges;
             change.splice(change.findIndex((i) => i == recipe.id), 1);
             setRecipeChanges(change);
         }
@@ -68,7 +70,7 @@ export default function DiscoverRecipe({ recipe, username, recipeChanges, setRec
                     <div className='cardTitle'>
                         <h2>{recipe.title}</h2>
                         {username[0] != '' ? (
-                            <img src={src} onClick={change}></img>
+                            <img src={src} onClick={saving}></img>
                         ) : (
                             <div></div>
                         )}
