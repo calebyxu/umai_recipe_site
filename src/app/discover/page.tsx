@@ -35,12 +35,17 @@ export default function Page() {
     const username = useResponseContext.username;
     const userRecipes = useResponseContext.userRecipes[0];
 
-    // if (userRecipes != '') {
-    //     userRecipes = JSON.parse(userRecipes);
-    //     for (let id of userRecipes) {
-    //         userRecipeArray.push(id.recipeid)
-    //     }
-    // }
+    let parsedRecipes = []
+
+    if (userRecipes != '') {
+        parsedRecipes = JSON.parse(userRecipes);
+        for (let id of parsedRecipes) {
+            if (!recipeChanges.includes(id.recipeid)) {
+                console.log('hello')
+                recipeChanges.push(id.recipeid)
+            }
+        }
+    }
 
     /* fetch data from db using username */
     // useEffect(() => {
@@ -56,19 +61,34 @@ export default function Page() {
     //     getUserRecipes();
     // }, []);
 
+    async function sendUserRecipes() {
+        const data = [recipeChanges, userRecipes]
+
+        await fetch('../api/postUserRecipes', {
+            method: 'post',
+            headers: {
+                'Context-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+    }
+
     return (
         <div id='discoverContainer'>
             <form id="sidebarContainer">
-                <div id='sidebarContainer'>
-                    <h1>Filters</h1>
+                <h1>Filters</h1>
+                <div id='submit'>
+                    <input type='reset' value='Delete' onClick={() => window.location.reload()}></input>
+                    <input type='submit' value='Save' onClick={sendUserRecipes}></input>
                 </div>
+                
             </form>
             <div id='contentWrapper'>
                 <h1 id='header'>Checkout Our Selection!</h1>
                 <div id='cardContainer'>
                     {recipes.data.length > 0 ? (
                         recipes.data.map((recipe) => (
-                            <DiscoverRecipe key={recipe.id} recipe={recipe} username={username} userRecipes={userRecipes} recipeChanges={recipeChanges} setRecipeChanges={setRecipeChanges} />
+                            <DiscoverRecipe key={recipe.id} recipe={recipe} username={username} recipeChanges={recipeChanges} setRecipeChanges={setRecipeChanges} />
                         ))
                     ) : (
                         <p>loading recipes...</p>

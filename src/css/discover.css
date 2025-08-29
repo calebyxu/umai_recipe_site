@@ -34,6 +34,11 @@ img {
     width: 20px;
 }
 
+input {
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
 #discoverContainer {
     display: flex;
     flex-direction: row;
@@ -150,8 +155,9 @@ img {
 #sidebarContainer {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 280px;
-    height: 860px;
+    height: 800px;
     position: fixed;
     left: 0px;
     padding: 35px;
@@ -186,6 +192,25 @@ img {
 
 .filters input {
     margin-right: 13px;
+}
+
+#submit {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#submit input {
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#submit input:hover {
+    background-color: white;
+    color: black;
 }
 
 /* Sidebar Slider */

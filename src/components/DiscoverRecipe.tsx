@@ -30,22 +30,19 @@ interface RecipeProps {
 interface DiscoverRecipeProps {
     recipe: RecipeProps,
     username: string[],
-    userRecipes: string,
     recipeChanges: number[],
     setRecipeChanges: React.Dispatch<React.SetStateAction<number[]>>
 }
 
-export default function DiscoverRecipe({ recipe, username, userRecipes, recipeChanges, setRecipeChanges }: DiscoverRecipeProps) {
+export default function DiscoverRecipe({ recipe, username, recipeChanges, setRecipeChanges }: DiscoverRecipeProps) {
     const [src, setSrc] = useState('/img/bookmarkWhite.png');
 
-    const parsedUserRecipes = JSON.parse(userRecipes);
-
     useEffect(() => {
-        const found = parsedUserRecipes.find((id: { recipeid: number }) => id.recipeid === recipe.id);
+        const found = recipeChanges.find((id: number) => id === recipe.id);
         if (found) {
             setSrc('/img/bookmarkBlack.png');
         }
-    }, [recipe.id, userRecipes]);
+    })
 
     function change() {
         if (src == '/img/bookmarkWhite.png') {
@@ -53,13 +50,11 @@ export default function DiscoverRecipe({ recipe, username, userRecipes, recipeCh
             let change = recipeChanges;
             change.push(recipe.id);
             setRecipeChanges(change);
-            console.log(recipeChanges)
         } else {
             setSrc('/img/bookmarkWhite.png');
             let change = recipeChanges;
-            change.splice(change.findIndex((i) => i == recipe.id));
+            change.splice(change.findIndex((i) => i == recipe.id), 1);
             setRecipeChanges(change);
-            console.log(recipeChanges)
         }
     }
 
