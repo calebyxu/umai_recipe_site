@@ -8,14 +8,9 @@ import { ClientContext } from '../ClientWrapperContext';
 import '../../css/userRecipes.css';
 
 export default function UserRecipes() {
-    const useResponseContext = useContext(ClientContext);
-
-    console.log(useResponseContext.responsePayload);
-
     return (
         <div className='container'>
             <h1>hello this is use recipes</h1>
-            <h1>{useResponseContext.responsePayload}</h1>
         </div>
     )
 }
