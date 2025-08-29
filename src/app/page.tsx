@@ -4,6 +4,8 @@
 /* React */
 import { useState, useEffect, useContext } from 'react';
 import { ClientContext } from './ClientWrapperContext';
+/* Session Storage State */
+import useSessionStorageState from 'use-session-storage-state';
 /* General */
 import Image from 'next/image';
 import Link from 'next/link';
@@ -28,6 +30,14 @@ interface payloadProps {
 };
 
 export default function Home() {
+    /*  */
+    /* init session vars */
+    // useEffect(() => {
+    //     if (typeof window !== "undefined") {
+    //         sessionStorage.setItem('name', '');
+    //         sessionStorage.setItem('email', '');
+    //     }
+    // })
 
     const initialJson: JsonResponse = { data: [] };
 
@@ -64,7 +74,7 @@ export default function Home() {
             items: 1
         }
     };
-
+        
     return (
         <>
             {/* <h1>hello this is the home page</h1>
@@ -82,7 +92,7 @@ export default function Home() {
                         <Image src='/img/picnicUserLanding.jpg' fill={true} objectFit={"cover"} alt='image'></Image>
                         <div id="heroTextWrapper">
                             <h1 id="heroText">Welcome</h1>
-                            <h1>{useResponseContext.responsePayload}</h1>
+                            <h1>{useResponseContext.username}</h1>
                         </div>
                     </div>
                 </div>
@@ -90,7 +100,7 @@ export default function Home() {
                     <h1>Find Something New</h1>
                     <Link href="/discover">Discover Now</Link>
                 </div>
-                <Carousel responsive={responsive} showDots={true} autoPlay={true} autoPlaySpeed={1000} infinite={true}>
+                <Carousel responsive={responsive} showDots={true} autoPlay={true} autoPlaySpeed={5000} infinite={true}>
                     <div className="carouselImg"><Image src="/img/recipes/charsui.jpg" fill={true} alt='image' objectFit='cover'></Image></div>
                     <div className="carouselImg"><Image src="/img/recipes/gyudon.jpg" fill={true} alt='image' objectFit='cover'></Image></div>
                     <div className="carouselImg"><Image src="/img/recipes/japanese_chicken_curry.jpg" fill={true} alt='image' objectFit='cover'></Image></div>
@@ -110,7 +120,7 @@ export default function Home() {
                             for cooking.
                             Click below to see what you have cooking!
                         </p>
-                        <Link href="/home">Cooking Time!</Link>
+                        <Link href="/discover">Cooking Time!</Link>
                     </div>
                     <div className="gridDisplay">
                         <div className='gridImg'><Image src='/img/recipes/katsudon.jpg' fill={true} objectFit={'cover'} alt='image'></Image></div>

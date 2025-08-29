@@ -46,6 +46,7 @@ iframe {
     display: flex;
     flex-direction: row;
     margin: 200px 250px;
+    color: white;
 }
 
 /* Left */

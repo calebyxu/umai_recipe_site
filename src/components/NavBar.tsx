@@ -10,7 +10,8 @@ import '../css/component.css';
 import { GoogleLogin } from '@react-oauth/google';
 
 interface payloadProps {
-    setResponsePayload: React.Dispatch<React.SetStateAction<string>>
+    setUserRecipes: React.Dispatch<React.SetStateAction<string[]>>
+    setUsername: React.Dispatch<React.SetStateAction<string[]>>
 };
 
 interface credentialResponse {
@@ -19,7 +20,7 @@ interface credentialResponse {
     clientId?: string;
 };
 
-export default function NavBar({ setResponsePayload }: payloadProps) {
+export default function NavBar({ setUsername, setUserRecipes }: payloadProps) {
 
     const [buttonSize, setButtonSize] = useState<'small' | 'medium' | 'large'>('large');
 
@@ -60,7 +61,11 @@ export default function NavBar({ setResponsePayload }: payloadProps) {
 
         console.log("Encoded JWT ID token: " + response.credential);
 
-        setResponsePayload(decodeJWT(response.credential).name);
+        /* not using sessionStorage since it loads after react rendering page */
+        // sessionStorage.setItem('name', responsePayload.name)
+
+        /* Lifting state and saving data with useState doesn't work well since data is refreshed on DOM unmounts */
+        // setResponsePayload(decodeJWT(response.credential).name);
 
         // console.log("Decoded JWT ID token fields:");
         // console.log("  Full Name: " + responsePayload.name);
@@ -84,13 +89,36 @@ export default function NavBar({ setResponsePayload }: payloadProps) {
         // } catch (e) {
         //     console.error(e);
         // }
+
+        /* save username to useSessionStorage */
+        const responsePayload = decodeJWT(response.credential);
+
+        setUsername(responsePayload.name)
+
+        const recipes = await fetch('../api/userRecipes', {
+            method: 'post',
+            headers: {
+                "Context-Type": "application/json"
+            },
+            body: JSON.stringify(responsePayload.name)
+        });
+
+        setUserRecipes([JSON.stringify(await recipes.json())])
+
+        await fetch('../api/users', {
+            method: 'post',
+            headers: {
+                "Context-Type": "application/json"
+            },
+            body: JSON.stringify(responsePayload)
+        });
     }
 
     return (
         <header className="topnavBackground" id="navbar">
             <div className='topnav'>
                 <div id='googleLogin'>
-                    <Link href="/"><div className='topnavImg'><Image src='./img/umaiBlackLogo.svg' fill={true} alt='image'></Image></div></Link>
+                    <Link href="/"><div className='topnavImg'><Image src='/img/umaiBlackLogo.svg' fill={true} alt='image'></Image></div></Link>
                     <GoogleLogin size={buttonSize}
                         onSuccess={handleCredentialResponse}
                         onError={() => {
@@ -103,7 +131,7 @@ export default function NavBar({ setResponsePayload }: payloadProps) {
                 <div className='topnavLinks'>
                     <Link href='/wip'>Add Recipe</Link>
                     <Link href='/discover'>Discover</Link>
-                    <Link href='/wip'>Your Recipes</Link>
+                    <Link href='/userRecipes'>Your Recipes</Link>
                 </div>
             </div>
         </header>
