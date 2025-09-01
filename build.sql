@@ -72,3 +72,7 @@ WHERE id = 2;
 SELECT userrecipes FROM userrecipes
 JOIN users ON userrecipes.userid = users.id
 WHERE users.username = 'DisDude2020 Xu';
+
+INSERT INTO 
+SELECT id FROM users
+WHERE username = 'DisDude2020 Xu';
