@@ -61,7 +61,7 @@ export default function Page() {
     // }, []);
 
     async function sendUserRecipes() {
-        const data = [recipeChanges, userRecipes]
+        const data = [recipeChanges, userRecipes, username]
 
         await fetch('../api/postUserRecipes', {
             method: 'post',
