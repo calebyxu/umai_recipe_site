@@ -24,7 +24,7 @@ export async function POST(request: Request) {
     })
 
     /* removes sims from org and changes */
-    for (let id of sims) {
+    for (const id of sims) {
         original.splice(original.findIndex((i) => i == id), 1)
         changes.splice(changes.findIndex((i) => i == id), 1)
     }
