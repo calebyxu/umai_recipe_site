@@ -33,7 +33,7 @@ export async function POST(request: Request) {
     const userID = await sql`SELECT id FROM users WHERE username = ${username};`
 
     /* if user removed all saves then remove all */
-    if (changes.length == 0) {
+    if (changes.length == 0 && sims.length == 0) {
         await sql`DELETE FROM userrecipes WHERE userid = ${userID[0].id};`
     } else {
         /* adds all saved recipes to db */
