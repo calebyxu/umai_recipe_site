@@ -37,18 +37,19 @@ export async function POST(request: Request) {
         await sql`DELETE FROM userrecipes WHERE userid = ${userID[0].id};`
     } else {
         /* adds all saved recipes to db */
-        query = `INSERT INTO userrecipes (userid, recipeid) VALUES `
+        if (changes.length > 0) {
+            query = `INSERT INTO userrecipes (userid, recipeid) VALUES `
 
-        for (let i = 0; i < changes.length; i++) {
-            query += `(${userID[0].id}, ${changes[i]})`
-            if (changes.length - i - 1 > 0) {
-                query += `, `
+            for (let i = 0; i < changes.length; i++) {
+                query += `(${userID[0].id}, ${changes[i]})`
+                if (changes.length - i - 1 > 0) {
+                    query += `, `
+                }
             }
+            query += `;`
+            await sql.query(query)
+            console.log(query)
         }
-        query += `;`
-        await sql.query(query)
-        console.log(query)
-
         /* removes unsaved recipes from db */
         if (original.length > 0) {
             query = `DELETE FROM userrecipes WHERE userid = ${userID[0].id} AND (`
